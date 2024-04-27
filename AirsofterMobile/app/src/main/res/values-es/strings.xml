@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AirsofterMobile</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="airsofter">Airsofter</string>
+    <string name="password">Contraseña</string>
+    <string name="no_account">No tengo cuenta</string>
+    <string name="login">Entrar</string>
+    <string name="password_question">¿Olvidaste la contraseña?</string>
+</resources>
