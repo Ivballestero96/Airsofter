@@ -7,4 +7,9 @@
     <string name="no_account">No tengo cuenta</string>
     <string name="login">Entrar</string>
     <string name="password_question">¿Olvidaste la contraseña?</string>
+    <string name="displayname">Nombre a mostrar</string>
+    <string name="email">Correo electrónico</string>
+    <string name="confirmPassword">Confirme contraseña</string>
+    <string name="register">Registrarse</string>
+    <string name="have_account">Ya tengo una cuenta</string>
 </resources>

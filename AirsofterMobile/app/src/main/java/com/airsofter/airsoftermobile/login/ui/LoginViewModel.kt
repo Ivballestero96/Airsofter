@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.airsofter.airsoftermobile.login.domain.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -37,7 +36,6 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
             _isLoading.value = true
             val result = loginUseCase(username.value!!, password.value!!)
             if(result){
-                //Navigate next screen
                 Log.i("LOGIN", "Result Ok")
             }
             _isLoading.value = false

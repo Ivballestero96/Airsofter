@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Wyr0LKBlhduz+FR3wotrpSoM30YCTh4je1fgMVnwMbOQ3aFBlCTiSPve0Sps9AVv0ROVDMiz6VFEaJcS3mBFEg==",
+  "dgSpecHash": "RNCxRVXTrPPdQnogogdCO2iifNwFWsMEIaSEcJYSLTHKMYTtg4WDj++4TC/Pf3/q+64PX5p2c38K2Q7TTMclfQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\AirsofterAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ivanb\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ivanb\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\ivanb\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\ivanb\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\ivanb\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
     "C:\\Users\\ivanb\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

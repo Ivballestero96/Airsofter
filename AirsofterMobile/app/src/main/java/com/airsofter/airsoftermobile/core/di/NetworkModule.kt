@@ -1,6 +1,7 @@
 package com.airsofter.airsoftermobile.core.di
 
 import com.airsofter.airsoftermobile.login.data.network.ILoginClient
+import com.airsofter.airsoftermobile.register.data.network.IRegisterClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +27,11 @@ class NetworkModule {
     @Provides
     fun provideLoginClient(retrofit: Retrofit):ILoginClient{
         return retrofit.create(ILoginClient::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideRegisterClient(retrofit: Retrofit):IRegisterClient{
+        return retrofit.create(IRegisterClient::class.java)
     }
 }

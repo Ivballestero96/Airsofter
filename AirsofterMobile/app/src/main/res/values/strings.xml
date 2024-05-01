@@ -6,4 +6,9 @@
     <string name="no_account">I don\'t have an account</string>
     <string name="login">Login</string>
     <string name="password_question">Forgot password?</string>
+    <string name="displayname">Display name</string>
+    <string name="email">Email</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="register">Register</string>
+    <string name="have_account">I already have an account</string>
 </resources>

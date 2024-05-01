@@ -19,7 +19,6 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,13 +28,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.airsofter.airsoftermobile.R
 
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel) {
+fun LoginScreen(loginViewModel: LoginViewModel, navController: NavHostController) {
     Box(
         Modifier
             .fillMaxSize()
@@ -50,13 +49,13 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
                 CircularProgressIndicator()
             }
         }else{
-            Login(Modifier.align(Alignment.Center), loginViewModel)
+            Login(Modifier.align(Alignment.Center), loginViewModel, navController)
         }
     }
 }
 
 @Composable
-fun Login(modifier: Modifier, loginViewModel: LoginViewModel) {
+fun Login(modifier: Modifier, loginViewModel: LoginViewModel, navController: NavHostController) {
 
     val username: String by loginViewModel.username.observeAsState("")
     val password: String by loginViewModel.password.observeAsState("")
@@ -75,12 +74,12 @@ fun Login(modifier: Modifier, loginViewModel: LoginViewModel) {
             UsernameField(username) { loginViewModel.onLoginChange(it, password) }
             Spacer(modifier = Modifier.padding(4.dp))
             PasswordField(password) { loginViewModel.onLoginChange(username, it) }
+            Spacer(modifier = Modifier.padding(16.dp))
+            LoginButton(loginEnable, loginViewModel, navController)
             Spacer(modifier = Modifier.padding(8.dp))
             ForgotPassword(Modifier.align(Alignment.End))
             Spacer(modifier = Modifier.padding(8.dp))
             RegisterQuestion(Modifier.align(Alignment.End))
-            Spacer(modifier = Modifier.padding(16.dp))
-            LoginButton(loginEnable, loginViewModel)
         }
     }
 }
@@ -97,9 +96,9 @@ fun RegisterQuestion(modifier: Modifier) {
 }
 
 @Composable
-fun LoginButton(loginEnable : Boolean, loginViewModel: LoginViewModel) {
+fun LoginButton(loginEnable : Boolean, loginViewModel: LoginViewModel, navController: NavHostController) {
     Button(
-        onClick = {loginViewModel.onLoginPressed()}
+        onClick = {navController.navigate("RegisterScreenKey")}
         , modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),
