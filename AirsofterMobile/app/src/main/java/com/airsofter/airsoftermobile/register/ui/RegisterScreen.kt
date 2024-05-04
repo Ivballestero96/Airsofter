@@ -14,6 +14,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -85,28 +86,33 @@ fun Register(modifier: Modifier, registerViewModel: RegisterViewModel, navContro
             Spacer(modifier = Modifier.padding(8.dp))
             ConfirmPasswordField(confirmPassword) { registerViewModel.onRegisterChange(username, displayName, email, password, it) }
             Spacer(modifier = Modifier.padding(16.dp))
-            RegisterButton(registerEnable, registerViewModel, navController)
+            RegisterButton(registerEnable, registerViewModel)
             Spacer(modifier = Modifier.padding(8.dp))
-            LoginQuestion(Modifier.align(Alignment.End))
+            LoginQuestion(Modifier.align(Alignment.End), navController)
         }
     }
 }
 
 @Composable
-fun LoginQuestion(modifier: Modifier) {
-    Text(
-        text = stringResource(id = R.string.have_account),
-        modifier = modifier.clickable { },
-        fontSize = 12.sp,
-        fontWeight = FontWeight.Bold,
-        color = Color(0xFFFB9600)
+fun LoginQuestion(modifier: Modifier, navController: NavHostController) {
+    TextButton(
+        onClick = {navController.navigate("LoginScreenKey")},
+        content = {
+            Text(
+                text = stringResource(id = R.string.have_account),
+                modifier = modifier.clickable { },
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFFFB9600)
+            )
+        }
     )
 }
 
 @Composable
-fun RegisterButton(registerEnable : Boolean, registerViewModel: RegisterViewModel, navController: NavHostController) {
+fun RegisterButton(registerEnable : Boolean, registerViewModel: RegisterViewModel) {
     Button(
-        onClick = {navController.navigate("LoginScreenKey")}
+        onClick = {}
         , modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),

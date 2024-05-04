@@ -49,7 +49,7 @@ namespace AirsofterAPI.Controllers
         }
 
 
-
+        [HttpPost("Register")]
         public async Task<ActionResult<UserDTO>> Register([FromBody] UserDTO userDTO)
         {
             try
@@ -101,14 +101,14 @@ namespace AirsofterAPI.Controllers
 
 
 
-        [HttpPost("Login")]
-        public async Task<ActionResult<UserDTO>> Login([FromBody] UserDTO loginDTO)
+        [HttpPost("login")]
+        public async Task<ActionResult<UserDTO>> Login([FromBody] LoginRequest loginRequest)
         {
             try
             {
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == loginDTO.Username);
-
-                if (user == null || !PasswordManager.VerifyPassword(loginDTO.Password, user.Password))
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == loginRequest.Username);
+                var hashedPassword = PasswordManager.HashPassword(loginRequest.Password);
+                if (user == null || !PasswordManager.VerifyPassword(hashedPassword, user.Password))
                 {
                     return Unauthorized(); // Usuario no encontrado o contraseña incorrecta
                 }

@@ -1,15 +1,73 @@
 [
   {
     "ContainingType": "AirsofterAPI.Controllers.UserController",
-    "Method": "Get",
-    "RelativePath": "api/users/GetUsers",
+    "Method": "GetUser",
+    "RelativePath": "api/users/GetUser/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[AirsofterAPI.DTO.UserDTO, AirsofterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "AirsofterAPI.DTO.UserDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.UserController",
+    "Method": "Login",
+    "RelativePath": "api/users/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "AirsofterAPI.DTO.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AirsofterAPI.DTO.UserDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.UserController",
+    "Method": "Register",
+    "RelativePath": "api/users/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDTO",
+        "Type": "AirsofterAPI.DTO.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AirsofterAPI.DTO.UserDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

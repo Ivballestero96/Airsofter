@@ -264,3 +264,4 @@ C:\Users\ivanb\Documents\AirsofterApp\Airsofter\AirsofterAPI\AirsofterAPI\obj\De
 C:\Users\ivanb\Documents\AirsofterApp\Airsofter\AirsofterAPI\AirsofterAPI\obj\Debug\net8.0\AirsofterAPI.pdb
 C:\Users\ivanb\Documents\AirsofterApp\Airsofter\AirsofterAPI\AirsofterAPI\obj\Debug\net8.0\AirsofterAPI.genruntimeconfig.cache
 C:\Users\ivanb\Documents\AirsofterApp\Airsofter\AirsofterAPI\AirsofterAPI\obj\Debug\net8.0\ref\AirsofterAPI.dll
+C:\Users\ivanb\Documents\AirsofterApp\Airsofter\AirsofterAPI\AirsofterAPI\bin\Debug\net8.0\BCrypt.Net-Next.dll

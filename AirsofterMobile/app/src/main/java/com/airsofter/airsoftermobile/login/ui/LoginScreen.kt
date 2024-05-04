@@ -13,7 +13,9 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -40,22 +42,16 @@ fun LoginScreen(loginViewModel: LoginViewModel, navController: NavHostController
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        val isLoading:Boolean by loginViewModel.isLoading.observeAsState(false)
-
-        if(isLoading){
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .align(Alignment.Center)){
-                CircularProgressIndicator()
-            }
-        }else{
-            Login(Modifier.align(Alignment.Center), loginViewModel, navController)
-        }
+        Login(Modifier.align(Alignment.Center), loginViewModel, navController)
     }
 }
 
 @Composable
-fun Login(modifier: Modifier, loginViewModel: LoginViewModel, navController: NavHostController) {
+fun Login(
+    modifier: Modifier,
+    loginViewModel: LoginViewModel,
+    navController: NavHostController
+) {
 
     val username: String by loginViewModel.username.observeAsState("")
     val password: String by loginViewModel.password.observeAsState("")
@@ -75,30 +71,34 @@ fun Login(modifier: Modifier, loginViewModel: LoginViewModel, navController: Nav
             Spacer(modifier = Modifier.padding(4.dp))
             PasswordField(password) { loginViewModel.onLoginChange(username, it) }
             Spacer(modifier = Modifier.padding(16.dp))
-            LoginButton(loginEnable, loginViewModel, navController)
+            LoginButton(loginEnable) {loginViewModel.onLoginPressed()}
             Spacer(modifier = Modifier.padding(8.dp))
             ForgotPassword(Modifier.align(Alignment.End))
-            Spacer(modifier = Modifier.padding(8.dp))
-            RegisterQuestion(Modifier.align(Alignment.End))
+            RegisterQuestion(Modifier.align(Alignment.End), navController)
         }
     }
 }
 
 @Composable
-fun RegisterQuestion(modifier: Modifier) {
-    Text(
-        text = stringResource(id = R.string.no_account),
-        modifier = modifier.clickable { },
-        fontSize = 12.sp,
-        fontWeight = FontWeight.Bold,
-        color = Color(0xFFFB9600)
-    )
+fun RegisterQuestion(modifier: Modifier, navController: NavHostController) {
+    TextButton(
+        modifier = modifier,
+        onClick = { navController.navigate("RegisterScreenKey")},
+        content = {
+            Text(
+                text = stringResource(id = R.string.no_account),
+                modifier = modifier.clickable { },
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFFFB9600)
+            )
+        })
 }
 
 @Composable
-fun LoginButton(loginEnable : Boolean, loginViewModel: LoginViewModel, navController: NavHostController) {
+fun LoginButton(loginEnable: Boolean, onLoginPressed: () -> Unit) {
     Button(
-        onClick = {navController.navigate("RegisterScreenKey")}
+        onClick = {onLoginPressed()}
         , modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),
@@ -114,13 +114,18 @@ fun LoginButton(loginEnable : Boolean, loginViewModel: LoginViewModel, navContro
 
 @Composable
 fun ForgotPassword(modifier: Modifier) {
-    Text(
-        text = stringResource(id = R.string.password_question),
-        modifier = modifier.clickable { },
-        fontSize = 12.sp,
-        fontWeight = FontWeight.Bold,
-        color = Color(0xFFFB9600)
-    )
+    TextButton(
+        modifier = modifier,
+        onClick = { },
+        content = {
+            Text(
+                text = stringResource(id = R.string.password_question),
+                modifier = modifier.clickable { },
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFFFB9600)
+            )
+        })
 }
 
 @Composable
