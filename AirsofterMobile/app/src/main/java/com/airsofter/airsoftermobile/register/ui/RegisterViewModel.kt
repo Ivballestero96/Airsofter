@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavHostController
 import com.airsofter.airsoftermobile.R
-import com.airsofter.airsoftermobile.login.data.network.model.UserDTO
 import com.airsofter.airsoftermobile.register.data.RegisterRepository
 import com.airsofter.airsoftermobile.register.domain.RegisterUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -42,18 +42,8 @@ class RegisterViewModel @Inject constructor(private val registerUseCase: Registe
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    suspend fun isUsernameAvailable(username: String): Boolean {
-        return !registerRepository.checkFieldAvailability("username", username)
-    }
-
-    suspend fun isDisplayNameAvailable(displayName: String): Boolean {
-        return !registerRepository.checkFieldAvailability("displayName", displayName)
-    }
-
-    suspend fun isEmailAvailable(email: String): Boolean {
-        return !registerRepository.checkFieldAvailability("email", email)
-    }
-
+    private val  _messageToSnackbar = MutableLiveData<Int>()
+    val messageToSnackbar:LiveData<Int> = _messageToSnackbar
 
     fun onRegisterChange(username: String, displayName: String, email: String, password: String, confirmPassword: String) {
         _username.value = username
@@ -84,36 +74,51 @@ class RegisterViewModel @Inject constructor(private val registerUseCase: Registe
         }
     }
 
-    fun onRegisterPressed(context: Context, scope: CoroutineScope, snackbarHostState: SnackbarHostState) {
+    fun onRegisterPressed(
+        context: Context,
+        scope: CoroutineScope,
+        snackbarHostState: SnackbarHostState,
+        navController: NavHostController
+    ) {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                if (!isUsernameAvailable(username.value!!)) {
-                    scope.launch {
-                        snackbarHostState.showSnackbar(context.getString(R.string.usernameExists))
+
+                val result = registerUseCase.invoke(username.value!!, displayName.value!!, email.value!!, password.value!!)
+
+
+                when {
+                    result.message.contains("Username taken", ignoreCase = true) -> {
+                        _messageToSnackbar.value = R.string.usernameExists
                     }
-                    return@launch
-                }
-                if (!isDisplayNameAvailable(displayName.value!!)) {
-                    scope.launch {
-                        snackbarHostState.showSnackbar(context.getString(R.string.displayNameExists))
+                    result.message.contains("Email taken", ignoreCase = true) -> {
+                        _messageToSnackbar.value = R.string.emailExists
                     }
-                    return@launch
-                }
-                if (!isEmailAvailable(email.value!!)) {
-                    scope.launch {
-                        snackbarHostState.showSnackbar(context.getString(R.string.emailExists))
+                    result.message.contains("DisplayName taken", ignoreCase = true) -> {
+                        _messageToSnackbar.value = R.string.displayNameExists
                     }
-                    return@launch
+                    result.message.contains("OK", ignoreCase = true) -> {
+                        _messageToSnackbar.value = R.string.register_succesful
+                    }
+                    else -> {
+                        _messageToSnackbar.value = R.string.unknownError
+                    }
                 }
 
-                // Si todos los campos están disponibles, realiza el registro
-                val result = registerUseCase.invoke(username.value!!, displayName.value!!, email.value!!, password.value!!)
-                Log.i("INFO RESULT", result.toString())
+                scope.launch {
+                    snackbarHostState.showSnackbar(context.getString(_messageToSnackbar.value ?: R.string.unknownError))
+                }
+
+                if(result.success){
+                    resetValues()
+                    navController.navigate("LoginScreenKey")
+                }
+
+                Log.i("INFO RESULT", result.message)
             } catch (e: Exception) {
                 Log.e("REGISTER", "Error during register: ${e.message}", e)
                 scope.launch {
-                    snackbarHostState.showSnackbar(context.getString(R.string.unknownError))
+                    snackbarHostState.showSnackbar(context.getString(_messageToSnackbar.value ?: R.string.unknownError))
                 }
             } finally {
                 _isLoading.value = false
@@ -121,4 +126,11 @@ class RegisterViewModel @Inject constructor(private val registerUseCase: Registe
         }
     }
 
+    private fun resetValues(){
+        _username.value = ""
+        _displayName.value = ""
+        _email.value = ""
+        _password.value = ""
+        _confirmPassword.value = ""
+    }
 }

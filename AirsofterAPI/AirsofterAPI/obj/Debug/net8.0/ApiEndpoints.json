@@ -1,63 +1,6 @@
 [
   {
     "ContainingType": "AirsofterAPI.Controllers.UserController",
-    "Method": "CheckFieldAvailability",
-    "RelativePath": "api/users/checkAvailability",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "field",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "value",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Boolean",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "AirsofterAPI.Controllers.UserController",
-    "Method": "GetUser",
-    "RelativePath": "api/users/getUser/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "AirsofterAPI.DTO.Users.UserDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "AirsofterAPI.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "api/users/login",
     "HttpMethod": "POST",

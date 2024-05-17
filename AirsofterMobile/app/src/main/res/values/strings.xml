@@ -20,5 +20,6 @@
     <string name="login_success">Login succesful</string>
     <string name="login_failed">Login failed</string>
     <string name="login_error">Login error</string>
-    <string name="login_input_error">Credentials errors</string>
+    <string name="login_input_error">Credential errors</string>
+    <string name="register_succesful">Registration succesful</string>
 </resources>

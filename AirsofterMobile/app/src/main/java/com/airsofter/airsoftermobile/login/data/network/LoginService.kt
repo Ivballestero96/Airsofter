@@ -9,8 +9,7 @@ class LoginService @Inject constructor(private val loginClient: ILoginClient){
 
     suspend fun doLogin(username: String, password: String): Boolean {
         return try {
-            val hashedPassword = hashPassword(password) // Cifrar el password
-            val loginRequest = LoginRequest(username, hashedPassword)
+            val loginRequest = LoginRequest(username, password)
             val response = loginClient.doLogin(loginRequest)
             // Realizar la solicitud HTTP usando Retrofit
             // Procesar la respuesta
@@ -23,10 +22,4 @@ class LoginService @Inject constructor(private val loginClient: ILoginClient){
         }
     }
 
-    private fun hashPassword(password: String): String {
-        val digest = MessageDigest.getInstance("SHA-256")
-        val bytes = password.toByteArray(Charsets.UTF_8)
-        val hashedBytes = digest.digest(bytes)
-        return hashedBytes.joinToString("") { "%02x".format(it) }
-    }
 }

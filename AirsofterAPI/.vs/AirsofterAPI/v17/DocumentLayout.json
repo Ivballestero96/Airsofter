@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\dto\\users\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\dto\\users\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\utils\\passwordmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\utils\\passwordmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\dto\\users\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\dto\\users\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\dto\\users\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,18 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\entities\\airsofterdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\entities\\airsofterdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\utils\\passwordmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\utils\\passwordmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|solutionrelative:airsofterapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B9FF787F-B53A-47C7-ACF3-5F592DF24C18}|AirsofterAPI\\AirsofterAPI.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsofterapi\\airsofterapi\\migrations\\airsofterdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,11 +62,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "AirsofterAPI\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\appsettings.Development.json",
+              "RelativeToolTip": "AirsofterAPI\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-17T22:22:07.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "20240429214951_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Migrations\\20240429214951_InitialCreate.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\Migrations\\20240429214951_InitialCreate.cs",
@@ -70,25 +87,24 @@
               "RelativeToolTip": "AirsofterAPI\\Migrations\\20240429214951_InitialCreate.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-04T17:34:18.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-04T17:34:18.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "AirsofterAPI\\Properties\\launchSettings.json",
               "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Properties\\launchSettings.json",
               "RelativeToolTip": "AirsofterAPI\\Properties\\launchSettings.json",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAiwAkAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-05-03T23:38:00.676Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "PasswordManager.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Utils\\PasswordManager.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\Utils\\PasswordManager.cs",
@@ -114,33 +130,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Program.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\Program.cs",
               "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Program.cs",
               "RelativeToolTip": "AirsofterAPI\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAIBJwBoAAAAqAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABwAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-29T21:41:08.48Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "AirsofterAPI\\Controllers\\UserController.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAQwFsAAAAIAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAUwCAAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-29T21:34:09.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\DTO\\Users\\UserDTO.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\DTO\\Users\\UserDTO.cs",
@@ -153,7 +169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Entities\\User.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\Entities\\User.cs",
@@ -161,12 +177,11 @@
               "RelativeToolTip": "AirsofterAPI\\Entities\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T21:30:32.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-29T21:30:32.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "AirsofterDbContext.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Entities\\AirsofterDbContext.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\Entities\\AirsofterDbContext.cs",
@@ -174,12 +189,11 @@
               "RelativeToolTip": "AirsofterAPI\\Entities\\AirsofterDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T21:28:56.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-29T21:28:56.102Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\DTO\\Users\\LoginRequest.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\DTO\\Users\\LoginRequest.cs",
@@ -187,12 +201,11 @@
               "RelativeToolTip": "AirsofterAPI\\DTO\\Users\\LoginRequest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-04T00:01:34.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-04T00:01:34.022Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "AirsofterDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Migrations\\AirsofterDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "AirsofterAPI\\Migrations\\AirsofterDbContextModelSnapshot.cs",
@@ -200,20 +213,18 @@
               "RelativeToolTip": "AirsofterAPI\\Migrations\\AirsofterDbContextModelSnapshot.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-04T17:35:49.101Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-04T17:35:49.101Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "AirsofterAPI",
               "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\AirsofterAPI.csproj",
               "RelativeDocumentMoniker": "AirsofterAPI\\AirsofterAPI.csproj",
               "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\AirsofterAPI.csproj",
               "RelativeToolTip": "AirsofterAPI\\AirsofterAPI.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-03T23:37:56.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T23:37:56.377Z"
             }
           ]
         }

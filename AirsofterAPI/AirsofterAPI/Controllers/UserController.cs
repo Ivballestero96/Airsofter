@@ -19,36 +19,6 @@ namespace AirsofterAPI.Controllers
             this._context = context;
         }
 
-        [HttpGet("getUser/{id}")]
-        public async Task<ActionResult<UserDTO>> GetUser(int id)
-        {
-            try
-            {
-                var user = await _context.Users.FindAsync(id);
-
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-                var userDTO = new UserDTO
-                {
-                    Id = user.Id,
-                    Username = user.Username,
-                    DisplayName = user.DisplayName,
-                    Email = user.Email,
-                    CreationDate = user.CreationDate
-                };
-
-                return Ok(userDTO);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error retrieving user: {ex.Message}");
-            }
-        }
-
-
         [HttpPost("register")]
         public async Task<ActionResult<UserDTO>> Register([FromBody] UserDTO userDTO)
         {
@@ -58,7 +28,26 @@ namespace AirsofterAPI.Controllers
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
-}
+                }
+
+                // Verificar si el nombre de usuario ya está en uso
+                if (await _context.Users.AnyAsync(u => u.Username == userDTO.Username))
+                {
+                    return Ok(new { success = false, message = "Username taken" });
+                }
+
+                // Verificar si el email ya está en uso
+                if (await _context.Users.AnyAsync(u => u.Email == userDTO.Email))
+                {
+                    return Ok(new { success = false, message = "Email taken" });
+                }
+
+                // Verificar si el alias ya está en uso
+                if (await _context.Users.AnyAsync(u => u.DisplayName == userDTO.DisplayName))
+                {
+                    return Ok(new { success = false, message = "DisplayName taken" });
+                }
+
                 // Crear un nuevo usuario
                 var newUser = new User
                 {
@@ -73,28 +62,14 @@ namespace AirsofterAPI.Controllers
                 _context.Users.Add(newUser);
                 await _context.SaveChangesAsync();
 
-                // Devolver el DTO del usuario creado
-                var userDTOWithoutPassword = new UserDTO
-                {
-                    Id = newUser.Id,
-                    Username = newUser.Username,
-                    DisplayName = newUser.DisplayName,
-                    Email = newUser.Email,
-                    CreationDate = newUser.CreationDate
-                };
 
-                return CreatedAtAction(nameof(GetUser), new { id = newUser.Id }, userDTOWithoutPassword);
+                return Ok(new { success = true, message = "OK" });
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Error during registration: {ex.Message}");
             }
         }
-
-
-
-
-
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login([FromBody] LoginRequest loginRequest)
@@ -105,8 +80,7 @@ namespace AirsofterAPI.Controllers
                 // Buscar el usuario en la base de datos usando el nombre de usuario encriptado
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == loginRequest.Username);
 
-                var hashedPassword = PasswordManager.HashPassword(loginRequest.Password);
-                if (user == null || !PasswordManager.VerifyPassword(hashedPassword, user.Password))
+                if (user == null || !PasswordManager.VerifyPassword(loginRequest.Password, user.Password))
                 {
                     return Unauthorized(); // Usuario no encontrado o contraseña incorrecta
                 }
@@ -127,32 +101,6 @@ namespace AirsofterAPI.Controllers
                 return StatusCode(500, $"Error during login: {ex.Message}");
             }
         }
-
-        [HttpGet("checkAvailability")]
-        public async Task<ActionResult<bool>> CheckFieldAvailability([FromQuery] string field, [FromQuery] string value)
-        {
-            try
-            {
-                switch (field.ToLower())
-                {
-                    case "username":
-                        return Ok(!await _context.Users.AnyAsync(u => u.Username == value));
-                    case "email":
-                        return Ok(!await _context.Users.AnyAsync(u => u.Email == value));
-                    case "displayname":
-                        return Ok(!await _context.Users.AnyAsync(u => u.DisplayName == value));
-                    default:
-                        return BadRequest("Invalid field.");
-                }
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error checking field availability: {ex.Message}");
-            }
-        }
-
-
-
     }
 
 }

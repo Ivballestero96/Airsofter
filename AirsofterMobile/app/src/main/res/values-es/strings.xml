@@ -22,4 +22,5 @@
     <string name="login_failed">Credenciales incorrectas</string>
     <string name="login_error">Error en el inicio de sesión</string>
     <string name="login_input_error">Error en las credenciales</string>
+    <string name="register_succesful">Registro completado</string>
 </resources>

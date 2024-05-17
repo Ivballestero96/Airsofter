@@ -9,11 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.airsofter.airsoftermobile.R
 import com.airsofter.airsoftermobile.login.domain.LoginUseCase
-import com.airsofter.airsoftermobile.ui.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -47,6 +44,9 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
             val result = loginUseCase.invoke(username.value!!, password.value!!)
             if (result) {
                 Log.i("LOGIN", "Login successful")
+                scope.launch {
+                    snackbarHostState.showSnackbar(context.getString(R.string.login_success))
+                }
                 // Aquí puedes realizar alguna acción después de que el inicio de sesión sea exitoso, como navegar a otra pantalla
             } else {
                 Log.i("LOGIN", "Login failed")
