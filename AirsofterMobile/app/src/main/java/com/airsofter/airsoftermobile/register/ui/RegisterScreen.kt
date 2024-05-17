@@ -86,7 +86,7 @@ fun Register(modifier: Modifier, registerViewModel: RegisterViewModel, navContro
             Spacer(modifier = Modifier.padding(8.dp))
             ConfirmPasswordField(confirmPassword) { registerViewModel.onRegisterChange(username, displayName, email, password, it) }
             Spacer(modifier = Modifier.padding(16.dp))
-            RegisterButton(registerEnable, registerViewModel)
+            RegisterButton(registerEnable){ registerViewModel.onRegisterPressed()}
             Spacer(modifier = Modifier.padding(8.dp))
             LoginQuestion(Modifier.align(Alignment.End), navController)
         }
@@ -110,9 +110,9 @@ fun LoginQuestion(modifier: Modifier, navController: NavHostController) {
 }
 
 @Composable
-fun RegisterButton(registerEnable : Boolean, registerViewModel: RegisterViewModel) {
+fun RegisterButton(registerEnable : Boolean, onRegisterPressed : () -> Unit) {
     Button(
-        onClick = {}
+        onClick = {onRegisterPressed()}
         , modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),

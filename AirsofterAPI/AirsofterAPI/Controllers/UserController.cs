@@ -63,7 +63,7 @@ namespace AirsofterAPI.Controllers
                 // Verificar si el nombre de usuario ya está en uso
                 if (await _context.Users.AnyAsync(u => u.Username == userDTO.Username))
                 {
-                    return BadRequest("Username is already taken.");
+                    return BadRequest(new { success = true, message = "El nombre de usuario ya está en uso"});
                 }
 
                 // Crear un nuevo usuario
@@ -80,17 +80,7 @@ namespace AirsofterAPI.Controllers
                 _context.Users.Add(newUser);
                 await _context.SaveChangesAsync();
 
-                // Devolver el DTO del usuario creado
-                var userDTOWithoutPassword = new UserDTO
-                {
-                    Id = newUser.Id,
-                    Username = newUser.Username,
-                    DisplayName = newUser.DisplayName,
-                    Email = newUser.Email,
-                    CreationDate = newUser.CreationDate
-                };
-
-                return CreatedAtAction(nameof(GetUser), new { id = newUser.Id }, userDTOWithoutPassword);
+                return Ok(new {success = true, message = "Registro exitoso"});
             }
             catch (Exception ex)
             {

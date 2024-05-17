@@ -43,7 +43,7 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
             val result = loginUseCase.invoke(username.value!!, password.value!!)
             if (result) {
                 Log.i("LOGIN", "Login successful")
-                // Aquí puedes realizar alguna acción después de que el inicio de sesión sea exitoso, como navegar a otra pantalla
+
             } else {
                 Log.i("LOGIN", "Login failed")
                 // Aquí puedes manejar el caso en que el inicio de sesión falle, por ejemplo, mostrar un mensaje de error al usuario
@@ -51,6 +51,4 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
             _isLoading.value = false
         }
     }
-
-
 }

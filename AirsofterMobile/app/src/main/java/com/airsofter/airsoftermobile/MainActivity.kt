@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navigationController = rememberNavController()
-                    NavHost(navController = navigationController, startDestination = "LoginScreenKey"){
+                    NavHost(navController = navigationController, startDestination = "RegisterScreenKey"){
                         composable("LoginScreenKey"){ LoginScreen(loginViewModel = loginViewModel, navigationController)}
                         composable("RegisterScreenKey"){ RegisterScreen(registerViewModel = registerViewModel, navigationController) }
                     }
