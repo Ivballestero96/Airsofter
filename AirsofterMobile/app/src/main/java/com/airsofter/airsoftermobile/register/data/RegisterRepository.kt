@@ -8,4 +8,9 @@ class RegisterRepository @Inject constructor(private val api: RegisterService){
     suspend fun registerUser(username: String, displayName: String, email: String, password: String): Boolean{
         return api.registerUser(username, displayName, email, password)
     }
+
+    suspend fun checkFieldAvailability(field: String, value: String): Boolean {
+        return api.checkFieldAvailability(field, value)
+    }
+
 }

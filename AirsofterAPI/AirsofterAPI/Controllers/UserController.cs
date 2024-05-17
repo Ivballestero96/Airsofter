@@ -1,4 +1,4 @@
-﻿using AirsofterAPI.DTO;
+﻿using AirsofterAPI.DTO.Users;
 using AirsofterAPI.Entities;
 using AirsofterAPI.Utils;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace AirsofterAPI.Controllers
             this._context = context;
         }
 
-        [HttpGet("GetUser/{id}")]
+        [HttpGet("getUser/{id}")]
         public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
             try
@@ -49,7 +49,7 @@ namespace AirsofterAPI.Controllers
         }
 
 
-        [HttpPost("Register")]
+        [HttpPost("register")]
         public async Task<ActionResult<UserDTO>> Register([FromBody] UserDTO userDTO)
         {
             try
@@ -58,14 +58,7 @@ namespace AirsofterAPI.Controllers
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
-                }
-
-                // Verificar si el nombre de usuario ya está en uso
-                if (await _context.Users.AnyAsync(u => u.Username == userDTO.Username))
-                {
-                    return BadRequest("Username is already taken.");
-                }
-
+}
                 // Crear un nuevo usuario
                 var newUser = new User
                 {
@@ -101,12 +94,17 @@ namespace AirsofterAPI.Controllers
 
 
 
+
+
         [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login([FromBody] LoginRequest loginRequest)
         {
             try
             {
+
+                // Buscar el usuario en la base de datos usando el nombre de usuario encriptado
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == loginRequest.Username);
+
                 var hashedPassword = PasswordManager.HashPassword(loginRequest.Password);
                 if (user == null || !PasswordManager.VerifyPassword(hashedPassword, user.Password))
                 {
@@ -119,8 +117,7 @@ namespace AirsofterAPI.Controllers
                     Id = user.Id,
                     Username = user.Username,
                     DisplayName = user.DisplayName,
-                    Email = user.Email,
-                    CreationDate = user.CreationDate
+                    Email = user.Email
                 };
 
                 return Ok(userDTO);
@@ -131,5 +128,31 @@ namespace AirsofterAPI.Controllers
             }
         }
 
+        [HttpGet("checkAvailability")]
+        public async Task<ActionResult<bool>> CheckFieldAvailability([FromQuery] string field, [FromQuery] string value)
+        {
+            try
+            {
+                switch (field.ToLower())
+                {
+                    case "username":
+                        return Ok(!await _context.Users.AnyAsync(u => u.Username == value));
+                    case "email":
+                        return Ok(!await _context.Users.AnyAsync(u => u.Email == value));
+                    case "displayname":
+                        return Ok(!await _context.Users.AnyAsync(u => u.DisplayName == value));
+                    default:
+                        return BadRequest("Invalid field.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error checking field availability: {ex.Message}");
+            }
+        }
+
+
+
     }
+
 }

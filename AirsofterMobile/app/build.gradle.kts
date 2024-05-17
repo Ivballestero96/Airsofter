@@ -66,6 +66,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation("com.google.accompanist:accompanist-permissions:0.31.0-alpha")
     implementation(libs.androidx.material3)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)

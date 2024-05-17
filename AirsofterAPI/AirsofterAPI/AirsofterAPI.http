@@ -1,6 +1,0 @@
-@AirsofterAPI_HostAddress = http://localhost:5238
-
-GET {{AirsofterAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

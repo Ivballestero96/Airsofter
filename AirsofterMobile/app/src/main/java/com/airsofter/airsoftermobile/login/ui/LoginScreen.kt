@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -34,15 +35,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.airsofter.airsoftermobile.R
+import kotlinx.coroutines.CoroutineScope
 
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel, navController: NavHostController) {
+fun LoginScreen(
+    loginViewModel: LoginViewModel,
+    navController: NavHostController,
+    scope: CoroutineScope,
+    snackbarHostState: SnackbarHostState
+) {
     Box(
         Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        Login(Modifier.align(Alignment.Center), loginViewModel, navController)
+        Login(Modifier.align(Alignment.Center), loginViewModel, navController, scope, snackbarHostState)
     }
 }
 
@@ -50,14 +57,18 @@ fun LoginScreen(loginViewModel: LoginViewModel, navController: NavHostController
 fun Login(
     modifier: Modifier,
     loginViewModel: LoginViewModel,
-    navController: NavHostController
+    navController: NavHostController,
+    scope: CoroutineScope,
+    snackbarHostState: SnackbarHostState
 ) {
 
     val username: String by loginViewModel.username.observeAsState("")
     val password: String by loginViewModel.password.observeAsState("")
-    val loginEnable: Boolean by loginViewModel.loginEnable.observeAsState(true)
+    val loginEnable: Boolean by loginViewModel.loginEnable.observeAsState(false)
 
     val isLoading: Boolean by loginViewModel.isLoading.observeAsState(false)
+
+    val context = LocalContext.current
 
     if(isLoading){
         Box(Modifier.fillMaxSize()){
@@ -71,7 +82,7 @@ fun Login(
             Spacer(modifier = Modifier.padding(4.dp))
             PasswordField(password) { loginViewModel.onLoginChange(username, it) }
             Spacer(modifier = Modifier.padding(16.dp))
-            LoginButton(loginEnable) {loginViewModel.onLoginPressed()}
+            LoginButton(loginEnable) {loginViewModel.onLoginPressed(context, scope, snackbarHostState)}
             Spacer(modifier = Modifier.padding(8.dp))
             ForgotPassword(Modifier.align(Alignment.End))
             RegisterQuestion(Modifier.align(Alignment.End), navController)
@@ -87,7 +98,6 @@ fun RegisterQuestion(modifier: Modifier, navController: NavHostController) {
         content = {
             Text(
                 text = stringResource(id = R.string.no_account),
-                modifier = modifier.clickable { },
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFFFB9600)
@@ -98,8 +108,8 @@ fun RegisterQuestion(modifier: Modifier, navController: NavHostController) {
 @Composable
 fun LoginButton(loginEnable: Boolean, onLoginPressed: () -> Unit) {
     Button(
-        onClick = {onLoginPressed()}
-        , modifier = Modifier
+        onClick = { onLoginPressed() },
+        modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),
         colors = ButtonDefaults.buttonColors(
@@ -111,6 +121,7 @@ fun LoginButton(loginEnable: Boolean, onLoginPressed: () -> Unit) {
         Text(text = stringResource(id = R.string.login))
     }
 }
+
 
 @Composable
 fun ForgotPassword(modifier: Modifier) {

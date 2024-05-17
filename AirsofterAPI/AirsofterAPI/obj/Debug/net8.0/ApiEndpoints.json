@@ -1,8 +1,39 @@
 [
   {
     "ContainingType": "AirsofterAPI.Controllers.UserController",
+    "Method": "CheckFieldAvailability",
+    "RelativePath": "api/users/checkAvailability",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "field",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.UserController",
     "Method": "GetUser",
-    "RelativePath": "api/users/GetUser/{id}",
+    "RelativePath": "api/users/getUser/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -15,7 +46,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "AirsofterAPI.DTO.UserDTO",
+        "Type": "AirsofterAPI.DTO.Users.UserDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -35,13 +66,13 @@
     "Parameters": [
       {
         "Name": "loginRequest",
-        "Type": "AirsofterAPI.DTO.LoginRequest",
+        "Type": "AirsofterAPI.DTO.Users.LoginRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "AirsofterAPI.DTO.UserDTO",
+        "Type": "AirsofterAPI.DTO.Users.UserDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -54,20 +85,20 @@
   {
     "ContainingType": "AirsofterAPI.Controllers.UserController",
     "Method": "Register",
-    "RelativePath": "api/users/Register",
+    "RelativePath": "api/users/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "userDTO",
-        "Type": "AirsofterAPI.DTO.UserDTO",
+        "Type": "AirsofterAPI.DTO.Users.UserDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "AirsofterAPI.DTO.UserDTO",
+        "Type": "AirsofterAPI.DTO.Users.UserDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

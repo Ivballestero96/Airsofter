@@ -1,5 +1,6 @@
 
 using AirsofterAPI.Entities;
+using AirsofterAPI.Utils;
 using Microsoft.EntityFrameworkCore;
 using MySql.EntityFrameworkCore.Extensions;
 

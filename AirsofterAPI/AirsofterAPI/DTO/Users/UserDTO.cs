@@ -1,4 +1,4 @@
-﻿namespace AirsofterAPI.DTO
+﻿namespace AirsofterAPI.DTO.Users
 {
     public class UserDTO
     {

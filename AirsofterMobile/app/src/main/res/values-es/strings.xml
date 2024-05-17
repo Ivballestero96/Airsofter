@@ -7,9 +7,19 @@
     <string name="no_account">No tengo cuenta</string>
     <string name="login">Entrar</string>
     <string name="password_question">¿Olvidaste la contraseña?</string>
-    <string name="displayname">Nombre a mostrar</string>
+    <string name="displayname">Alias</string>
     <string name="email">Correo electrónico</string>
     <string name="confirmPassword">Confirme contraseña</string>
     <string name="register">Registrarse</string>
     <string name="have_account">Ya tengo una cuenta</string>
+    <string name="login_not_correct">Usuario o contraseña incorrecto.</string>
+    <string name="login_fail">Ha ocurrido un error durante el proceso de inicio de sesión. Por favor, contacte con soporte.</string>
+    <string name="usernameExists">El nombre de usuario ya existe</string>
+    <string name="emailExists">El correo electrónico ya está registrado</string>
+    <string name="displayNameExists">El alis ya está en uso</string>
+    <string name="unknownError">Ha ocurrido un error</string>
+    <string name="login_success">Inicio de sesión correcto</string>
+    <string name="login_failed">Credenciales incorrectas</string>
+    <string name="login_error">Error en el inicio de sesión</string>
+    <string name="login_input_error">Error en las credenciales</string>
 </resources>

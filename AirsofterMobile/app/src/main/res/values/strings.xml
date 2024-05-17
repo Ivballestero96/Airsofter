@@ -6,9 +6,19 @@
     <string name="no_account">I don\'t have an account</string>
     <string name="login">Login</string>
     <string name="password_question">Forgot password?</string>
-    <string name="displayname">Display name</string>
+    <string name="displayname">Alias</string>
     <string name="email">Email</string>
     <string name="confirmPassword">Confirm password</string>
     <string name="register">Register</string>
     <string name="have_account">I already have an account</string>
+    <string name="login_not_correct">Incorrect username or password.</string>
+    <string name="login_fail">An error ocurred while login. Please contact suppor.</string>
+    <string name="usernameExists">The username already exists</string>
+    <string name="emailExists">The email is already registered</string>
+    <string name="displayNameExists">Alias is already taken</string>
+    <string name="unknownError">An error ocurred</string>
+    <string name="login_success">Login succesful</string>
+    <string name="login_failed">Login failed</string>
+    <string name="login_error">Login error</string>
+    <string name="login_input_error">Credentials errors</string>
 </resources>
