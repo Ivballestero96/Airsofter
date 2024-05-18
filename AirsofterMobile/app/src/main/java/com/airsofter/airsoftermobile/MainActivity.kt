@@ -22,7 +22,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.createGraph
+import com.airsofter.airsoftermobile.home.HomeScreen
 import com.airsofter.airsoftermobile.login.ui.LoginScreen
 import com.airsofter.airsoftermobile.login.ui.LoginViewModel
 import com.airsofter.airsoftermobile.register.ui.RegisterScreen
@@ -36,6 +36,8 @@ class MainActivity : ComponentActivity() {
 
     private val loginViewModel: LoginViewModel by viewModels()
     private val registerViewModel: RegisterViewModel by viewModels()
+    // Obtener el usuario actualmente logueado
+    val currentUser = UserManager.getCurrentUser()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +82,7 @@ class MainActivity : ComponentActivity() {
             modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            NavHost(navController = navigationController, startDestination = "LoginScreenKey") {
+            NavHost(navController = navigationController, startDestination = if (currentUser != null) "HomeScreenKey" else "LoginScreenKey") {
                 composable("LoginScreenKey")
                 {
                     LoginScreen(
@@ -93,6 +95,13 @@ class MainActivity : ComponentActivity() {
                 {
                     RegisterScreen(
                         registerViewModel = registerViewModel,
+                        navController = navigationController,
+                        scope = scope,
+                        snackbarHostState = snackbarHostState)
+                }
+                composable("HomeScreenKey")
+                {
+                    HomeScreen(
                         navController = navigationController,
                         scope = scope,
                         snackbarHostState = snackbarHostState)

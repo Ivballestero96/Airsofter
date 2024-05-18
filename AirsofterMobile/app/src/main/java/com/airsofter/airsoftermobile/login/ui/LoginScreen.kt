@@ -82,7 +82,7 @@ fun Login(
             Spacer(modifier = Modifier.padding(4.dp))
             PasswordField(password) { loginViewModel.onLoginChange(username, it) }
             Spacer(modifier = Modifier.padding(16.dp))
-            LoginButton(loginEnable) {loginViewModel.onLoginPressed(context, scope, snackbarHostState)}
+            LoginButton(loginEnable) {loginViewModel.onLoginPressed(context, scope, snackbarHostState, navController)}
             Spacer(modifier = Modifier.padding(8.dp))
             ForgotPassword(Modifier.align(Alignment.End))
             RegisterQuestion(Modifier.align(Alignment.End), navController)

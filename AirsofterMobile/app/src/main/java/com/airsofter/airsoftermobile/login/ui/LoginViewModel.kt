@@ -7,7 +7,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavHostController
 import com.airsofter.airsoftermobile.R
+import com.airsofter.airsoftermobile.core.model.UserToLoad
 import com.airsofter.airsoftermobile.login.domain.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -15,7 +17,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase) : ViewModel() {
+class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase, ) : ViewModel() {
 
     private val _username = MutableLiveData<String>()
     val username: LiveData<String> = _username
@@ -29,29 +31,43 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _snackbarMessage = MutableLiveData<String>()
-    val snackbarMessage: LiveData<String> = _snackbarMessage
-
     fun onLoginChange(username: String, password: String) {
         _username.value = username
         _password.value = password
         _loginEnable.value = username.isNotBlank() && password.isNotBlank()
     }
 
-    fun onLoginPressed(context: Context, scope: CoroutineScope, snackbarHostState: SnackbarHostState) {
+    fun onLoginPressed(
+        context: Context,
+        scope: CoroutineScope,
+        snackbarHostState: SnackbarHostState,
+        navController: NavHostController
+    ) {
         viewModelScope.launch {
             _isLoading.value = true
             val result = loginUseCase.invoke(username.value!!, password.value!!)
-            if (result) {
+            if (result != null) {
                 Log.i("LOGIN", "Login successful")
                 scope.launch {
                     snackbarHostState.showSnackbar(context.getString(R.string.login_success))
                 }
+
+                val userToLoad = result.userToLoad
+
+                val user = UserToLoad(
+                    id = userToLoad.id,
+                    username = userToLoad.username ?: "",
+                    displayName = userToLoad.displayName ?: "",
+                    email = userToLoad.email ?: ""
+                )
+
+                UserManager.setCurrentUser(user, context)
+                navController.navigate("HomeScreenKey")
                 // Aquí puedes realizar alguna acción después de que el inicio de sesión sea exitoso, como navegar a otra pantalla
             } else {
                 Log.i("LOGIN", "Login failed")
                 scope.launch {
-                    snackbarHostState.showSnackbar(context.getString(R.string.login_error))
+                    snackbarHostState.showSnackbar(context.getString(R.string.login_failed))
                 }
                 // Aquí puedes manejar el caso en que el inicio de sesión falle, por ejemplo, mostrar un mensaje de error al usuario
             }

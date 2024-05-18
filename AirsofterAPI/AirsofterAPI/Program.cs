@@ -11,36 +11,57 @@ namespace AirsofterAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            ConfigureServices(builder.Services);
 
-            if (connectionString != null)
-            {
-                builder.Services.AddControllers();
-                builder.Services.AddEndpointsApiExplorer();
-                builder.Services.AddSwaggerGen();
-                builder.Services.AddEntityFrameworkMySQL()
-                    .AddDbContext<AirsofterDbContext>(options =>
-                    {
-                        options.UseMySQL(connectionString);
-                    });
+            var app = builder.Build();
+            Configure(app, builder.Configuration);
 
-                var app = builder.Build();
+            app.Run();
+        }
 
-                if (app.Environment.IsDevelopment())
-                {
-                    app.UseSwagger();
-                    app.UseSwaggerUI();
-                }
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            var connectionString = services.BuildServiceProvider().GetService<IConfiguration>().GetConnectionString("DefaultConnection");
 
-                app.UseHttpsRedirection();
-                app.UseAuthorization();
-                app.MapControllers();
-                app.Run();
-            }
-            else
+            if (connectionString == null)
             {
                 throw new Exception("ConnectionString not valid");
             }
+
+            services.AddControllers();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+            services.AddEntityFrameworkMySQL().AddDbContext<AirsofterDbContext>(options =>
+            {
+                options.UseMySQL(connectionString);
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAnyOrigin", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+            });
+        }
+
+        private static void Configure(WebApplication app, IConfiguration configuration)
+        {
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseAuthorization();
+            app.MapControllers();
+
+            app.UseCors("AllowAnyOrigin");
         }
     }
+
 }
+

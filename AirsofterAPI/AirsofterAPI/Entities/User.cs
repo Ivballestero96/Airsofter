@@ -2,7 +2,7 @@
 {
     public partial class User
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public required string? Username { get; set; }
         public required string? DisplayName { get; set; }
         public required string? Password { get; set; }

@@ -2,7 +2,7 @@
   {
     "ContainingType": "AirsofterAPI.Controllers.UserController",
     "Method": "Login",
-    "RelativePath": "api/users/login",
+    "RelativePath": "api/User/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -15,7 +15,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "AirsofterAPI.DTO.Users.UserDTO",
+        "Type": "AirsofterAPI.DTO.Users.LoginResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -28,20 +28,20 @@
   {
     "ContainingType": "AirsofterAPI.Controllers.UserController",
     "Method": "Register",
-    "RelativePath": "api/users/register",
+    "RelativePath": "api/User/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userDTO",
-        "Type": "AirsofterAPI.DTO.Users.UserDTO",
+        "Name": "userToModify",
+        "Type": "AirsofterAPI.DTO.Users.UserToModify",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "AirsofterAPI.DTO.Users.UserDTO",
+        "Type": "AirsofterAPI.DTO.Users.UserToModify",
         "MediaTypes": [
           "text/plain",
           "application/json",

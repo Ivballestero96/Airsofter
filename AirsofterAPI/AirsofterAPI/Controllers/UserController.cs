@@ -8,7 +8,7 @@ using System.Data;
 
 namespace AirsofterAPI.Controllers
 {
-    [Route("api/users")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace AirsofterAPI.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<UserDTO>> Register([FromBody] UserDTO userDTO)
+        public async Task<ActionResult<UserToModify>> Register([FromBody] UserToModify userToModify)
         {
             try
             {
@@ -31,19 +31,19 @@ namespace AirsofterAPI.Controllers
                 }
 
                 // Verificar si el nombre de usuario ya está en uso
-                if (await _context.Users.AnyAsync(u => u.Username == userDTO.Username))
+                if (await _context.Users.AnyAsync(u => u.Username == userToModify.Username))
                 {
                     return Ok(new { success = false, message = "Username taken" });
                 }
 
                 // Verificar si el email ya está en uso
-                if (await _context.Users.AnyAsync(u => u.Email == userDTO.Email))
+                if (await _context.Users.AnyAsync(u => u.Email == userToModify.Email))
                 {
                     return Ok(new { success = false, message = "Email taken" });
                 }
 
                 // Verificar si el alias ya está en uso
-                if (await _context.Users.AnyAsync(u => u.DisplayName == userDTO.DisplayName))
+                if (await _context.Users.AnyAsync(u => u.DisplayName == userToModify.DisplayName))
                 {
                     return Ok(new { success = false, message = "DisplayName taken" });
                 }
@@ -51,10 +51,10 @@ namespace AirsofterAPI.Controllers
                 // Crear un nuevo usuario
                 var newUser = new User
                 {
-                    Username = userDTO?.Username,
-                    DisplayName = userDTO?.DisplayName,
-                    Email = userDTO?.Email,
-                    Password = PasswordManager.HashPassword(userDTO?.Password),
+                    Username = userToModify?.Username,
+                    DisplayName = userToModify?.DisplayName,
+                    Email = userToModify?.Email,
+                    Password = PasswordManager.HashPassword(userToModify?.Password),
                     CreationDate = DateTime.UtcNow
                 };
 
@@ -72,11 +72,10 @@ namespace AirsofterAPI.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<UserDTO>> Login([FromBody] LoginRequest loginRequest)
+        public async Task<ActionResult<LoginResponse>> Login([FromBody] LoginRequest loginRequest)
         {
             try
             {
-
                 // Buscar el usuario en la base de datos usando el nombre de usuario encriptado
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == loginRequest.Username);
 
@@ -86,15 +85,20 @@ namespace AirsofterAPI.Controllers
                 }
 
                 // Usuario autenticado correctamente, puedes devolver la información del usuario como DTO
-                var userDTO = new UserDTO
+                var userToLoad = new UserToLoad
                 {
-                    Id = user.Id,
+                    Id = user.Id.ToString(),
                     Username = user.Username,
                     DisplayName = user.DisplayName,
                     Email = user.Email
                 };
 
-                return Ok(userDTO);
+                var loginResponse = new LoginResponse
+                {
+                    UserToLoad = userToLoad
+                };
+
+                return Ok(loginResponse);
             }
             catch (Exception ex)
             {
@@ -102,5 +106,6 @@ namespace AirsofterAPI.Controllers
             }
         }
     }
-
 }
+
+
