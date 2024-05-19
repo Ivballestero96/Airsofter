@@ -3,6 +3,7 @@ using System;
 using AirsofterAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirsofterAPI.Migrations
 {
     [DbContext(typeof(AirsofterDbContext))]
-    partial class AirsofterDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240518152716_RequiredEntities")]
+    partial class RequiredEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

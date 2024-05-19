@@ -61,7 +61,7 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase,
                     email = userToLoad.email ?: ""
                 )
 
-                UserManager.setCurrentUser(user, context)
+                UserManager.setCurrentUser(user)
                 navController.navigate("HomeScreenKey")
                 // Aquí puedes realizar alguna acción después de que el inicio de sesión sea exitoso, como navegar a otra pantalla
             } else {
