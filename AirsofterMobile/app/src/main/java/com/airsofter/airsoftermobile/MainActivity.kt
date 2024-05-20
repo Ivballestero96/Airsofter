@@ -24,6 +24,8 @@ import androidx.navigation.compose.rememberNavController
 import com.airsofter.airsoftermobile.home.ui.HomeScreen
 import com.airsofter.airsoftermobile.login.ui.LoginScreen
 import com.airsofter.airsoftermobile.login.ui.LoginViewModel
+import com.airsofter.airsoftermobile.main.ui.MainScreen
+import com.airsofter.airsoftermobile.profile.ProfileScreen
 import com.airsofter.airsoftermobile.register.ui.RegisterScreen
 import com.airsofter.airsoftermobile.register.ui.RegisterViewModel
 import com.airsofter.airsoftermobile.ui.theme.AirsofterMobileTheme
@@ -70,7 +72,7 @@ class MainActivity : ComponentActivity() {
             modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            NavHost(navController = navigationController, startDestination = if (UserManager.getCurrentUser() != null) "HomeScreenKey" else "LoginScreenKey") {
+            NavHost(navController = navigationController, startDestination = if (UserManager.getCurrentUser() != null) "MainScreenKey" else "LoginScreenKey") {
                 composable("LoginScreenKey")
                 {
                     LoginScreen(
@@ -87,12 +89,12 @@ class MainActivity : ComponentActivity() {
                         scope = scope,
                         snackbarHostState = snackbarHostState)
                 }
-                composable("HomeScreenKey")
+                composable("MainScreenKey")
                 {
-                    HomeScreen(
-                        navController = navigationController,
-                        scope = scope,
-                        snackbarHostState = snackbarHostState)
+                    MainScreen()
+                }
+                composable("ProfileScreenKey"){
+                    ProfileScreen()
                 }
             }
         }

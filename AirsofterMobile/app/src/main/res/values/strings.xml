@@ -22,4 +22,6 @@
     <string name="login_error">Login error</string>
     <string name="login_input_error">Credential errors</string>
     <string name="register_succesful">Registration succesful</string>
+    <string name="game_list">Game List</string>
+    <string name="nextGame">Your next game</string>
 </resources>

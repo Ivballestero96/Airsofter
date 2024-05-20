@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AirsofterAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+882e136f8368fa0cb3a2860e1b297691f3046a00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c35b03081e3b26204a9063169f25b4bfac479a26")]
 [assembly: System.Reflection.AssemblyProductAttribute("AirsofterAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AirsofterAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9513,19 +9513,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Atlas\\.nuget\\packages\\": {}
+    "C:\\Users\\ivanb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Atlas\\Documents\\GitHub\\Airsofter\\AirsofterAPI\\AirsofterAPI\\AirsofterAPI.csproj",
+      "projectUniqueName": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\AirsofterAPI.csproj",
       "projectName": "AirsofterAPI",
-      "projectPath": "C:\\Users\\Atlas\\Documents\\GitHub\\Airsofter\\AirsofterAPI\\AirsofterAPI\\AirsofterAPI.csproj",
-      "packagesPath": "C:\\Users\\Atlas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Atlas\\Documents\\GitHub\\Airsofter\\AirsofterAPI\\AirsofterAPI\\obj\\",
+      "projectPath": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\AirsofterAPI.csproj",
+      "packagesPath": "C:\\Users\\ivanb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Atlas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ivanb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

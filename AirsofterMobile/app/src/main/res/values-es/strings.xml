@@ -23,4 +23,6 @@
     <string name="login_error">Error en el inicio de sesión</string>
     <string name="login_input_error">Error en las credenciales</string>
     <string name="register_succesful">Registro completado</string>
+    <string name="game_list">Lista de partidas</string>
+    <string name="nextGame">Tu próxima partida</string>
 </resources>
