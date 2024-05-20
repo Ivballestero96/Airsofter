@@ -76,15 +76,13 @@ namespace AirsofterAPI.Controllers
         {
             try
             {
-                // Buscar el usuario en la base de datos usando el nombre de usuario encriptado
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == loginRequest.Username);
 
                 if (user == null || !PasswordManager.VerifyPassword(loginRequest.Password, user.Password))
                 {
-                    return Unauthorized(); // Usuario no encontrado o contraseña incorrecta
+                    return Unauthorized();
                 }
 
-                // Usuario autenticado correctamente, puedes devolver la información del usuario como DTO
                 var userToLoad = new UserToLoad
                 {
                     Id = user.Id.ToString(),

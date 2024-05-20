@@ -24,4 +24,7 @@
     <string name="register_succesful">Registration succesful</string>
     <string name="game_list">Game List</string>
     <string name="nextGame">Your next game</string>
+    <string name="players">Players</string>
+    <string name="province">Province</string>
+    <string name="filterByProvince">Filter by Province</string>
 </resources>

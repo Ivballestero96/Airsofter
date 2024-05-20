@@ -25,4 +25,7 @@
     <string name="register_succesful">Registro completado</string>
     <string name="game_list">Lista de partidas</string>
     <string name="nextGame">Tu próxima partida</string>
+    <string name="players">Jugadores</string>
+    <string name="province">Provincia</string>
+    <string name="filterByProvince">Filtrar por provincia</string>
 </resources>

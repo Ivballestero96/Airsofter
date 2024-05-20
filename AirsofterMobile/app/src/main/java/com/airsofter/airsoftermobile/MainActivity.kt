@@ -21,10 +21,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.airsofter.airsoftermobile.gameList.ui.GameListViewModel
 import com.airsofter.airsoftermobile.home.ui.HomeScreen
 import com.airsofter.airsoftermobile.login.ui.LoginScreen
 import com.airsofter.airsoftermobile.login.ui.LoginViewModel
-import com.airsofter.airsoftermobile.main.ui.MainScreen
 import com.airsofter.airsoftermobile.profile.ProfileScreen
 import com.airsofter.airsoftermobile.register.ui.RegisterScreen
 import com.airsofter.airsoftermobile.register.ui.RegisterViewModel
@@ -37,6 +37,8 @@ class MainActivity : ComponentActivity() {
 
     private val loginViewModel: LoginViewModel by viewModels()
     private val registerViewModel: RegisterViewModel by viewModels()
+    private val gameListViewModel: GameListViewModel by viewModels()
+
     // Obtener el usuario actualmente logueado
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,7 +74,7 @@ class MainActivity : ComponentActivity() {
             modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            NavHost(navController = navigationController, startDestination = if (UserManager.getCurrentUser() != null) "MainScreenKey" else "LoginScreenKey") {
+            NavHost(navController = navigationController, startDestination = if (UserManager.getCurrentUser() != null) "HomeScreenKey" else "LoginScreenKey") {
                 composable("LoginScreenKey")
                 {
                     LoginScreen(
@@ -89,9 +91,9 @@ class MainActivity : ComponentActivity() {
                         scope = scope,
                         snackbarHostState = snackbarHostState)
                 }
-                composable("MainScreenKey")
+                composable("HomeScreenKey")
                 {
-                    MainScreen()
+                    HomeScreen(gameListViewModel = gameListViewModel)
                 }
                 composable("ProfileScreenKey"){
                     ProfileScreen()

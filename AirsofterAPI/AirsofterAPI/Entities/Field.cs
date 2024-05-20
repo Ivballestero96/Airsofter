@@ -9,6 +9,6 @@
         public Guid CountryId {  get; set; }
         public Country Country { get; set; }
         public Guid ProvinceId {  get; set; }
-        public Province province {  get; set; }
+        public Province Province {  get; set; }
     }
 }

@@ -35,7 +35,7 @@ fun SettingsScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
-                onClick = { /* Handle 'Report a Bug' */ },
+                onClick = { },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(text = "Notificar un error")
@@ -43,7 +43,6 @@ fun SettingsScreen() {
             Spacer(modifier = Modifier.height(8.dp))
             Button(
                 onClick = {
-                    // Logout: Clear user info and restart the activity
                     UserManager.logout()
                     restartActivity(context)
                 },

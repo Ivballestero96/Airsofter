@@ -8,7 +8,7 @@
         public Guid FieldId { get; set; }
         public Field? Field { get; set; }
         public bool IsAM {  get; set; }
-        public uint maxPlayers { get; set; }
+        public int MaxPlayers { get; set; }
 
     }
 }

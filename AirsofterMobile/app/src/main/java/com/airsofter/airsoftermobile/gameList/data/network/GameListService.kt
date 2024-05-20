@@ -1,16 +1,16 @@
-package com.airsofter.airsoftermobile.login.data.network
+package com.airsofter.airsoftermobile.gameList.data.network
 
 import android.util.Log
+import com.airsofter.airsoftermobile.gameList.data.network.response.GameListResponse
+import com.airsofter.airsoftermobile.login.data.network.ILoginClient
 import com.airsofter.airsoftermobile.login.data.network.requests.LoginRequest
 import com.airsofter.airsoftermobile.login.data.network.response.LoginResponse
 import javax.inject.Inject
 
-class LoginService @Inject constructor(private val loginClient: ILoginClient) {
-
-    suspend fun doLogin(username: String, password: String): LoginResponse? {
+class GameListService @Inject constructor(private val gameListClient: IGameListClient){
+    suspend fun getGameList(): GameListResponse? {
         return try {
-            val loginRequest = LoginRequest(username, password)
-            val response = loginClient.doLogin(loginRequest)
+            val response = gameListClient.getGameList()
 
             Log.d("Response", response.body().toString())
 

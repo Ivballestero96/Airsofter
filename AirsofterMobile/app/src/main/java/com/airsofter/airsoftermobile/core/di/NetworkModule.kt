@@ -1,5 +1,6 @@
 package com.airsofter.airsoftermobile.core.di
 
+import com.airsofter.airsoftermobile.gameList.data.network.IGameListClient
 import com.airsofter.airsoftermobile.login.data.network.ILoginClient
 import com.airsofter.airsoftermobile.register.data.network.IRegisterClient
 import dagger.Module
@@ -33,5 +34,11 @@ class NetworkModule {
     @Provides
     fun provideRegisterClient(retrofit: Retrofit):IRegisterClient{
         return retrofit.create(IRegisterClient::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGameListClient(retrofit: Retrofit):IGameListClient{
+        return retrofit.create(IGameListClient::class.java)
     }
 }
