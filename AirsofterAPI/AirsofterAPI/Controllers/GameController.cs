@@ -18,6 +18,8 @@ namespace AirsofterAPI.Controllers
             _context = context;
         }
 
+
+
         [HttpGet("list")]
         public async Task<ActionResult<GameListResponse>> GetGames()
         {
@@ -35,7 +37,7 @@ namespace AirsofterAPI.Controllers
                 Location = g.Field.Province.Name,
                 GameDateTime = g.GameDate,
                 IsAM = g.IsAM,
-                CurrentPlayers = 0, // Calcular por tabla de enlace
+                CurrentPlayers = _context.UserGames.Count(gp => gp.GameId == g.Id),
                 MaxPlayers = g.MaxPlayers
             }).ToList();
 
@@ -49,15 +51,15 @@ namespace AirsofterAPI.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Game>> GetGame(Guid id)
+        public async Task<ActionResult<GameDetailDto>> GetGame(Guid id)
         {
             var game = await _context.Games
                 .Include(g => g.Field)
-                .ThenInclude(f => f.Company)
+                    .ThenInclude(f => f.Company)
                 .Include(g => g.Field)
-                .ThenInclude(f => f.Country)
+                    .ThenInclude(f => f.Country)
                 .Include(g => g.Field)
-                .ThenInclude(f => f.Province)
+                    .ThenInclude(f => f.Province)
                 .FirstOrDefaultAsync(g => g.Id == id);
 
             if (game == null)
@@ -65,7 +67,74 @@ namespace AirsofterAPI.Controllers
                 return NotFound();
             }
 
-            return game;
+            var userGames = await _context.UserGames
+                .Where(ug => ug.GameId == id)
+                .Include(ug => ug.User)
+                .ToListAsync();
+
+            var playerNames = userGames.Select(ug => ug.User?.DisplayName).ToList();
+
+            var gameDetailDto = new GameDetailDto
+            {
+                Id = game.Id,
+                FieldName = game.Field.Name,
+                CompanyName = game.Field.Company.CompanyName,
+                ProvinceName = game.Field.Province.Name,
+                CountryName = game.Field.Country.Name,
+                Description = game.Description,
+                CurrentPlayers = playerNames.Count, 
+                MaxPlayers = game.MaxPlayers,
+                GameDateTime = game.GameDate,
+                IsAM = game.IsAM,
+                Players = playerNames
+            };
+
+            return gameDetailDto;
+        }
+
+        [HttpPost("{id}/signup")]
+        public async Task<ActionResult> SignUpForGame(Guid id, [FromBody] SignUpDto signUpDto)
+        {
+            if (id != signUpDto.GameId)
+            {
+                return BadRequest("Game ID in the URL does not match Game ID in the body");
+            }
+
+            var game = await _context.Games.FirstOrDefaultAsync(g => g.Id == id);
+
+            if (game == null)
+            {
+                return NotFound("Game not found");
+            }
+
+            var existingSignUp = await _context.UserGames
+                .FirstOrDefaultAsync(gp => gp.GameId == signUpDto.GameId && gp.UserId == signUpDto.UserId);
+
+            if (existingSignUp != null)
+            {
+                return BadRequest("User is already signed up for a game on this date");
+            }
+
+            var isSignedUpForAnotherGameOnSameDate = await _context.UserGames
+                .AnyAsync(gp => gp.UserId == signUpDto.UserId && gp.Game.GameDate.Date == game.GameDate.Date);
+
+            if (isSignedUpForAnotherGameOnSameDate)
+            {
+                return BadRequest("User is already signed up for another game on the same date");
+            }
+
+            var gameParticipant = new UserGame
+            {
+                GameId = signUpDto.GameId,
+                UserId = signUpDto.UserId
+            };
+
+            _context.UserGames.Add(gameParticipant);
+            await _context.SaveChangesAsync();
+
+            return Ok("Signed up for the game successfully");
         }
     }
 }
+
+

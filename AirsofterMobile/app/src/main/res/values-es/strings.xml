@@ -28,4 +28,6 @@
     <string name="players">Jugadores</string>
     <string name="province">Provincia</string>
     <string name="filterByProvince">Filtrar por provincia</string>
+    <string name="applyFilter">Aplicar filtro</string>
+    <string name="backToList">Volver al listado</string>
 </resources>

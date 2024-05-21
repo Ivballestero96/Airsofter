@@ -13,6 +13,7 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -23,15 +24,23 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.airsofter.airsoftermobile.core.model.Game
+import com.airsofter.airsoftermobile.gameDetail.GameDetailScreen
 import com.airsofter.airsoftermobile.gameList.ui.GameListScreen
 import com.airsofter.airsoftermobile.gameList.ui.GameListViewModel
 import com.airsofter.airsoftermobile.profile.ProfileScreen
 import com.airsofter.airsoftermobile.settings.SettingsScreen
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 data class BottomNavigationItem(
     val title: String,
@@ -67,12 +76,17 @@ fun HomeScreen(modifier: Modifier = Modifier, gameListViewModel: GameListViewMod
     Scaffold(
         bottomBar = {
             NavigationBar(
+                containerColor = Color(0xFFFB9600),
                 modifier = Modifier
                     .padding(10.dp)
                     .clip(RoundedCornerShape(20.dp))
             ) {
                 items.forEachIndexed { index, item ->
                     NavigationBarItem(
+                        colors = NavigationBarItemDefaults.colors(
+                            indicatorColor = Color.White,
+                            selectedTextColor = Color.White
+                        ),
                         selected = selectedItemIndex == index,
                         onClick = {
                             selectedItemIndex = index
@@ -100,18 +114,28 @@ fun HomeScreen(modifier: Modifier = Modifier, gameListViewModel: GameListViewMod
         }
     ) { paddingValues ->
         Surface(
-            modifier = Modifier.fillMaxSize().padding(paddingValues),
-
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
             ) {
             NavHost(navController = navController, startDestination = "GameListScreenKey") {
                 composable("ProfileScreenKey") {
                     ProfileScreen()
                 }
                 composable("GameListScreenKey") {
-                    GameListScreen(gameListViewModel = gameListViewModel)
+                    GameListScreen(gameListViewModel = gameListViewModel) { game ->
+                        navController.navigate("GameDetailScreenKey/${game.id}")
+                    }
                 }
                 composable("SettingsScreenKey") {
                     SettingsScreen()
+                }
+                composable(
+                    route = "GameDetailScreenKey/{gameId}",
+                    arguments = listOf(navArgument("gameId") { type = NavType.StringType })
+                ) { backStackEntry ->
+                    val gameId = backStackEntry.arguments?.getString("gameId")
+                    GameDetailScreen(gameId = gameId, navController = navController)
                 }
             }
         }

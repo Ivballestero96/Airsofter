@@ -1,26 +1,6 @@
 [
   {
     "ContainingType": "AirsofterAPI.Controllers.GameController",
-    "Method": "GetGames",
-    "RelativePath": "api/Game",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "AirsofterAPI.DTO.Games.GameListResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "AirsofterAPI.Controllers.GameController",
     "Method": "GetGame",
     "RelativePath": "api/Game/{id}",
     "HttpMethod": "GET",
@@ -35,7 +15,48 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "AirsofterAPI.Entities.Game",
+        "Type": "AirsofterAPI.DTO.Games.GameDetailDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.GameController",
+    "Method": "SignUpForGame",
+    "RelativePath": "api/Game/{id}/signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "signUpDto",
+        "Type": "AirsofterAPI.DTO.Games.SignUpDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.GameController",
+    "Method": "GetGames",
+    "RelativePath": "api/Game/list",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AirsofterAPI.DTO.Games.GameListResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",

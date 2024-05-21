@@ -49,11 +49,10 @@ namespace AirsofterAPI
 
         private static void Configure(WebApplication app, IConfiguration configuration)
         {
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            
 
             app.UseHttpsRedirection();
             app.UseAuthorization();

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
-
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -69,6 +69,8 @@ dependencies {
     implementation("com.google.accompanist:accompanist-permissions:0.31.0-alpha")
     implementation(libs.androidx.material3)
     implementation(libs.hilt.android)
+    implementation(libs.kotlinx.serialization.json)
+    implementation (libs.kotlinx.serialization.core)
     kapt(libs.hilt.android.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

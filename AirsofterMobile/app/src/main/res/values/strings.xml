@@ -27,4 +27,6 @@
     <string name="players">Players</string>
     <string name="province">Province</string>
     <string name="filterByProvince">Filter by Province</string>
+    <string name="applyFilter">Apply filter</string>
+    <string name="backToList">Back to list</string>
 </resources>

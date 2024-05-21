@@ -1,6 +1,9 @@
 package com.airsofter.airsoftermobile.gameList.ui
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +18,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Refresh
+import androidx.compose.foundation.clickable
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -26,12 +30,16 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
@@ -39,16 +47,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.airsofter.airsoftermobile.R
-import com.airsofter.airsoftermobile.gameList.data.network.response.Game
+import com.airsofter.airsoftermobile.core.model.Game
 import com.airsofter.airsoftermobile.gameList.data.network.response.GameListResponse
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 @Composable
-fun GameListScreen(gameListViewModel: GameListViewModel){
+fun GameListScreen(gameListViewModel: GameListViewModel, onGameClick: (Game) -> Unit) {
     val snackbarHostState = remember { SnackbarHostState() }
 
     // Observar la lista de juegos y el estado del filtro de ubicación
@@ -67,10 +78,13 @@ fun GameListScreen(gameListViewModel: GameListViewModel){
             isLoading = isLoading,
             locationFilter = locationFilter,
             onRefreshClicked = { gameListViewModel.refresh() },
-            onLocationFilterChange = { gameListViewModel.setFilterByProvince(it) }
+            onLocationFilterChange = { gameListViewModel.updateLocationFilter(it) },
+            onApplyFilter = { gameListViewModel.applyFilter() },
+            onGameClick = onGameClick
         )
     }
 }
+
 @Composable
 fun GameListContent(
     modifier: Modifier,
@@ -78,18 +92,20 @@ fun GameListContent(
     isLoading: Boolean,
     onLocationFilterChange: (String) -> Unit,
     onRefreshClicked: () -> Unit,
+    onApplyFilter: () -> Unit,
     locationFilter: String,
+    onGameClick: (Game) -> Unit
 ) {
-    var gamesToLoad : List<Game> = emptyList()
-    if(games?.games != null){
+    var gamesToLoad: List<Game> = emptyList()
+    if (games?.games != null) {
         gamesToLoad = games.games
     }
 
-    if(isLoading){
-        Box(Modifier.fillMaxSize()){
+    if (isLoading) {
+        Box(Modifier.fillMaxSize()) {
             CircularProgressIndicator(Modifier.align(Alignment.Center))
         }
-    }else{
+    } else {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -97,20 +113,19 @@ fun GameListContent(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            NextGame(gamesToLoad)
-            LocationFilter(locationFilter, onLocationFilterChange)
-            GameList(gamesToLoad, locationFilter, onRefreshClicked)
+            NextGame(gamesToLoad, onGameClick)
+            LocationFilter(locationFilter, onLocationFilterChange, onApplyFilter)
+            GameList(gamesToLoad, locationFilter, onRefreshClicked, onGameClick)
         }
     }
 }
-
-
 
 @Composable
 fun GameList(
     games: List<Game>,
     locationFilter: String,
-    onRefreshClicked: () -> Unit
+    onRefreshClicked: () -> Unit,
+    onGameClick: (Game) -> Unit
 ) {
     val filteredGames = if (locationFilter.isNotBlank()) {
         games.filter { it.location.contains(locationFilter, ignoreCase = true) }
@@ -143,12 +158,11 @@ fun GameList(
             modifier = Modifier.fillMaxWidth()
         ) {
             items(filteredGames) { game ->
-                GameItem(game = game)
+                GameItem(game = game, onClick = { onGameClick(game) })
             }
         }
     }
 }
-
 
 @Composable
 fun Title(text: String) {
@@ -162,22 +176,23 @@ fun Title(text: String) {
 }
 
 @Composable
-fun NextGame(games: List<Game>) {
+fun NextGame(games: List<Game>, onGameClick: (Game) -> Unit) {
     Title(text = stringResource(id = R.string.nextGame))
     val firstGame = games.firstOrNull()
 
     if (firstGame != null) {
-        GameItem(firstGame)
+        GameItem(game = firstGame, onClick = { onGameClick(firstGame) })
     }
 }
 
 @Composable
-fun GameItem(game: Game) {
+fun GameItem(game: Game, onClick: () -> Unit) {
     val placeholderImage: Painter = painterResource(id = R.drawable.fieldpic)
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp)
+            .clickable(onClick = onClick), // Agregar clickable
         elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         shape = RoundedCornerShape(8.dp)
@@ -191,18 +206,19 @@ fun GameItem(game: Game) {
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(80.dp)  // Aumenta el tamaño de la imagen
+                    .size(90.dp)
                     .aspectRatio(1f)
             )
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp, end = 18.dp) // Ajusta el padding de inicio según sea necesario
+                    .padding(start = 16.dp, end = 18.dp)
             ) {
                 Text(
                     text = game.fieldName,
                     modifier = Modifier.fillMaxWidth(),
-                    textAlign = TextAlign.End
+                    textAlign = TextAlign.End,
+                    fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = "${stringResource(id = R.string.province)}: ${game.location}",
@@ -225,20 +241,21 @@ fun GameItem(game: Game) {
 }
 
 @Composable
-fun LocationFilter(locationFilter: String, onLocationFilterChange: (String) -> Unit) {
-    TextField(
-        value = locationFilter,
-        onValueChange = {
-            onLocationFilterChange(it)
-        },
-        label = { Text(stringResource(id = R.string.filterByProvince)) },
+fun LocationFilter(locationFilter: String, onLocationFilterChange: (String) -> Unit, onApplyFilter: () -> Unit) {
+    Column(
         modifier = Modifier
             .padding(vertical = 8.dp)
-            .fillMaxWidth(),
-        singleLine = true,
-        textStyle = TextStyle(color = Color.Black)
-    )
+            .fillMaxWidth()
+    ) {
+        TextField(
+            value = locationFilter,
+            onValueChange = onLocationFilterChange,
+            label = { Text(stringResource(id = R.string.filterByProvince)) },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            textStyle = TextStyle(color = Color.Black),
+            colors = TextFieldDefaults.colors(focusedContainerColor = Color(0xFFFAF0E7),
+            unfocusedContainerColor = Color(0xFFFAF0E7))
+        )
+    }
 }
-
-
-

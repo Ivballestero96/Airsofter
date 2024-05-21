@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.airsofter.airsoftermobile.gameList.data.network.response.Game
+import com.airsofter.airsoftermobile.core.model.Game
 import com.airsofter.airsoftermobile.gameList.data.network.response.GameListResponse
 import com.airsofter.airsoftermobile.gameList.domain.GameListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,7 +27,7 @@ class GameListViewModel @Inject constructor(private val gameListUseCase: GameLis
     private val _locationFilter = MutableLiveData<String>()
     val locationFilter: LiveData<String> get() = _locationFilter
 
-    private var allGames: List<Game> = emptyList() // Almacena todos los juegos recuperados durante fetchGames()
+    private var allGames: List<Game> = emptyList()
 
     init {
         fetchGames()
@@ -37,9 +37,20 @@ class GameListViewModel @Inject constructor(private val gameListUseCase: GameLis
         fetchGames()
     }
 
-    fun setFilterByProvince(province: String) {
+    fun updateLocationFilter(province: String) {
         _locationFilter.value = province
-        applyFilter()
+    }
+
+    fun applyFilter() {
+        val filter = _locationFilter.value.orEmpty().trim()
+
+        val filteredGames = if (filter.isNotBlank()) {
+            allGames.filter { it.location.contains(filter, ignoreCase = true) }
+        } else {
+            allGames
+        }
+
+        _games.value = GameListResponse(filteredGames)
     }
 
     private fun fetchGames() {
@@ -56,17 +67,5 @@ class GameListViewModel @Inject constructor(private val gameListUseCase: GameLis
                 _isLoading.value = false
             }
         }
-    }
-
-    private fun applyFilter() {
-        val filter = _locationFilter.value.orEmpty().trim()
-
-        val filteredGames = if (filter.isNotBlank()) {
-            allGames.filter { it.location.contains(filter, ignoreCase = true) }
-        } else {
-            allGames
-        }
-
-        _games.value = GameListResponse(filteredGames)
     }
 }
