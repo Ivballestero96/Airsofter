@@ -8,7 +8,7 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface IRegisterClient {
-    @POST("users/register")
+    @POST("user/register")
     @Headers(
         value = [
             "Accept: application/json",

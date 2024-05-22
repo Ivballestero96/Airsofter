@@ -62,7 +62,7 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase,
                 )
 
                 UserManager.setCurrentUser(user)
-                navController.navigate("MainScreenKey")
+                navController.navigate("HomeScreenKey")
                 // Aquí puedes realizar alguna acción después de que el inicio de sesión sea exitoso, como navegar a otra pantalla
             } else {
                 Log.i("LOGIN", "Login failed")
