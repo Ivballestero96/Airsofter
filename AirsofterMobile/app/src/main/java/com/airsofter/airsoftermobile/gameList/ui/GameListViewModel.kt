@@ -39,7 +39,6 @@ class GameListViewModel @Inject constructor(
 
     init {
         fetchGames()
-        getNextGame(UserManager.getCurrentUser()?.id.toString())
     }
 
     fun refresh() {
@@ -63,10 +62,10 @@ class GameListViewModel @Inject constructor(
         _games.value = GameListResponse(filteredGames)
     }
 
-    fun getNextGame(id: String?) {
+    private fun getNextGame(id: String?) {
         viewModelScope.launch {
             try {
-                val nextGame = nextGameUseCase(id)
+                val nextGame = nextGameUseCase(id)?.nextGameDto
                 _nextGame.postValue(nextGame)
             } catch (e: Exception) {
                 _error.value = "Error fetching next game: ${e.message}"
@@ -81,7 +80,7 @@ class GameListViewModel @Inject constructor(
                 val gameList = gameListUseCase.invoke() ?: throw NullPointerException("Games list is null")
                 allGames = gameList.games
                 _games.postValue(gameList)
-                getNextGame(allGames.firstOrNull()?.id) // Obtener el próximo juego después de obtener la lista
+                getNextGame(UserManager.getCurrentUser()?.id) // Obtener el próximo juego después de obtener la lista
             } catch (e: Exception) {
                 _error.value = "Error fetching games: ${e.message}"
             } finally {

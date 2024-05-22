@@ -75,19 +75,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "playerId",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "id",
-        "Type": "",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "AirsofterAPI.DTO.Games.GameDto",
+        "Type": "AirsofterAPI.DTO.Games.NextGameResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",

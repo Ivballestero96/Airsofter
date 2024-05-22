@@ -141,20 +141,26 @@ namespace AirsofterAPI.Controllers
         }
 
         [HttpGet("next/{id}")]
-        public async Task<ActionResult<GameDto>> GetNextGameForPlayer(Guid id)
+        public async Task<ActionResult<NextGameResponse>> GetNextGameForPlayer(Guid id)
         {
             var nextGame = await _context.UserGames
                 .Where(ug => ug.UserId == id) // Filtrar por el ID del jugador
-                .Select(ug => ug.Game) // Seleccionar las partidas asociadas con el jugador
-                .Include(g => g.Field)
-                    .ThenInclude(f => f.Company)
-                .Include(g => g.Field)
-                    .ThenInclude(f => f.Country)
-                .Include(g => g.Field)
-                    .ThenInclude(f => f.Province)
-                .Where(g => g.GameDate >= DateTime.Now)
-                .OrderBy(g => g.GameDate)
+                .Include(ug => ug.Game) // Incluir la entidad Game asociada a UserGame
+                    .ThenInclude(g => g.Field)
+                        .ThenInclude(f => f.Company)
+                .Include(ug => ug.Game)
+                    .ThenInclude(g => g.Field)
+                        .ThenInclude(f => f.Country)
+                .Include(ug => ug.Game)
+                    .ThenInclude(g => g.Field)
+                        .ThenInclude(f => f.Province)
+                .Where(ug => ug.Game.GameDate >= DateTime.Now) // Filtrar por fecha de juego
+                .OrderBy(ug => ug.Game.GameDate)
+                .Select(ug => ug.Game) // Seleccionar la entidad Game
                 .FirstOrDefaultAsync();
+
+
+
 
             if (nextGame == null)
             {
@@ -162,7 +168,7 @@ namespace AirsofterAPI.Controllers
             }
 
             var gameDto = new GameDto
-            {
+            { 
                 Id = nextGame.Id,
                 FieldName = nextGame.Field.Name,
                 Location = nextGame.Field.Province.Name,
@@ -172,7 +178,12 @@ namespace AirsofterAPI.Controllers
                 MaxPlayers = nextGame.MaxPlayers
             };
 
-            return gameDto;
+            NextGameResponse nextGameResponse = new NextGameResponse
+            {
+                NextGameDto = gameDto
+            };
+
+            return nextGameResponse;
         }
 
 

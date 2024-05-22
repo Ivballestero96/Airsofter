@@ -55,8 +55,6 @@ import androidx.compose.ui.unit.sp
 import com.airsofter.airsoftermobile.R
 import com.airsofter.airsoftermobile.core.model.Game
 import com.airsofter.airsoftermobile.gameList.data.network.response.GameListResponse
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 @Composable
 fun GameListScreen(gameListViewModel: GameListViewModel, onGameClick: (Game) -> Unit) {
