@@ -21,6 +21,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.airsofter.airsoftermobile.gameDetail.ui.GameDetailViewModel
 import com.airsofter.airsoftermobile.gameList.ui.GameListViewModel
 import com.airsofter.airsoftermobile.home.ui.HomeScreen
 import com.airsofter.airsoftermobile.login.ui.LoginScreen
@@ -38,6 +39,7 @@ class MainActivity : ComponentActivity() {
     private val loginViewModel: LoginViewModel by viewModels()
     private val registerViewModel: RegisterViewModel by viewModels()
     private val gameListViewModel: GameListViewModel by viewModels()
+    private  val gameDetailViewModel: GameDetailViewModel by viewModels()
 
     // Obtener el usuario actualmente logueado
 
@@ -93,7 +95,7 @@ class MainActivity : ComponentActivity() {
                 }
                 composable("HomeScreenKey")
                 {
-                    HomeScreen(gameListViewModel = gameListViewModel)
+                    HomeScreen(gameListViewModel = gameListViewModel, gameDetailViewModel = gameDetailViewModel)
                 }
                 composable("ProfileScreenKey"){
                     ProfileScreen()

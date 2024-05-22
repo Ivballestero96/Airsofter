@@ -29,4 +29,8 @@
     <string name="filterByProvince">Filter by Province</string>
     <string name="applyFilter">Apply filter</string>
     <string name="backToList">Back to list</string>
+    <string name="description">Description\n</string>
+    <string name="playersList">Player list\n</string>
+    <string name="country">Country\n</string>
+    <string name="company">Company\n</string>
 </resources>

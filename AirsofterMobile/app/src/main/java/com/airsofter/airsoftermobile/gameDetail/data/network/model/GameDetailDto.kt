@@ -1,6 +1,6 @@
 package com.airsofter.airsoftermobile.gameDetail.data.network.model
 
-data class GameDetailToLoad(
+data class GameDetailDto(
     val id: String,
     val fieldName: String,
     val companyName: String?,

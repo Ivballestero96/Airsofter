@@ -15,7 +15,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "AirsofterAPI.DTO.Games.GameDetailDto",
+        "Type": "AirsofterAPI.DTO.Games.GameDetailResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -57,6 +57,37 @@
     "ReturnTypes": [
       {
         "Type": "AirsofterAPI.DTO.Games.GameListResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.GameController",
+    "Method": "GetNextGameForPlayer",
+    "RelativePath": "api/Game/next/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playerId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AirsofterAPI.DTO.Games.GameDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -1,8 +1,8 @@
 package com.airsofter.airsoftermobile.gameDetail.data.network.response
 
-import com.airsofter.airsoftermobile.gameDetail.data.network.model.GameDetailToLoad
+import com.airsofter.airsoftermobile.gameDetail.data.network.model.GameDetailDto
 import com.google.gson.annotations.SerializedName
 
 data class GameDetailResponse(
-    @SerializedName("userToLoad") val gameDetailToLoad: GameDetailToLoad
+    @SerializedName("gameDetailDto") val gameDetailToLoad: GameDetailDto
 )

@@ -51,7 +51,7 @@ namespace AirsofterAPI.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GameDetailDto>> GetGame(Guid id)
+        public async Task<ActionResult<GameDetailResponse>> GetGame(Guid id)
         {
             var game = await _context.Games
                 .Include(g => g.Field)
@@ -89,7 +89,12 @@ namespace AirsofterAPI.Controllers
                 Players = playerNames
             };
 
-            return gameDetailDto;
+            var gameDetailResponse = new GameDetailResponse
+            {
+                GameDetailDto = gameDetailDto
+            };
+
+            return gameDetailResponse;
         }
 
         [HttpPost("{id}/signup")]
@@ -134,6 +139,43 @@ namespace AirsofterAPI.Controllers
 
             return Ok("Signed up for the game successfully");
         }
+
+        [HttpGet("next/{id}")]
+        public async Task<ActionResult<GameDto>> GetNextGameForPlayer(Guid id)
+        {
+            var nextGame = await _context.UserGames
+                .Where(ug => ug.UserId == id) // Filtrar por el ID del jugador
+                .Select(ug => ug.Game) // Seleccionar las partidas asociadas con el jugador
+                .Include(g => g.Field)
+                    .ThenInclude(f => f.Company)
+                .Include(g => g.Field)
+                    .ThenInclude(f => f.Country)
+                .Include(g => g.Field)
+                    .ThenInclude(f => f.Province)
+                .Where(g => g.GameDate >= DateTime.Now)
+                .OrderBy(g => g.GameDate)
+                .FirstOrDefaultAsync();
+
+            if (nextGame == null)
+            {
+                return NotFound("No upcoming games found");
+            }
+
+            var gameDto = new GameDto
+            {
+                Id = nextGame.Id,
+                FieldName = nextGame.Field.Name,
+                Location = nextGame.Field.Province.Name,
+                GameDateTime = nextGame.GameDate,
+                IsAM = nextGame.IsAM,
+                CurrentPlayers = _context.UserGames.Count(gp => gp.GameId == nextGame.Id),
+                MaxPlayers = nextGame.MaxPlayers
+            };
+
+            return gameDto;
+        }
+
+
     }
 }
 

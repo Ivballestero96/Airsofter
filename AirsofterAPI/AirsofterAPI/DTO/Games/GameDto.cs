@@ -10,6 +10,4 @@
         public int CurrentPlayers { get; set; }
         public int MaxPlayers { get; set; }
     }
-
-
 }

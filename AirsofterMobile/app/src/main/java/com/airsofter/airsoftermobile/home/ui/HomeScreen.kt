@@ -32,15 +32,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.airsofter.airsoftermobile.core.model.Game
-import com.airsofter.airsoftermobile.gameDetail.GameDetailScreen
+import com.airsofter.airsoftermobile.gameDetail.ui.GameDetailScreen
+import com.airsofter.airsoftermobile.gameDetail.ui.GameDetailViewModel
 import com.airsofter.airsoftermobile.gameList.ui.GameListScreen
 import com.airsofter.airsoftermobile.gameList.ui.GameListViewModel
 import com.airsofter.airsoftermobile.profile.ProfileScreen
 import com.airsofter.airsoftermobile.settings.SettingsScreen
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 data class BottomNavigationItem(
     val title: String,
@@ -49,7 +46,11 @@ data class BottomNavigationItem(
 )
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, gameListViewModel: GameListViewModel) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    gameListViewModel: GameListViewModel,
+    gameDetailViewModel: GameDetailViewModel
+) {
     val navController = rememberNavController()
 
     val items = listOf(
@@ -135,7 +136,7 @@ fun HomeScreen(modifier: Modifier = Modifier, gameListViewModel: GameListViewMod
                     arguments = listOf(navArgument("gameId") { type = NavType.StringType })
                 ) { backStackEntry ->
                     val gameId = backStackEntry.arguments?.getString("gameId")
-                    GameDetailScreen(gameId = gameId, navController = navController)
+                    GameDetailScreen(gameId = gameId, navController = navController, gameDetailViewModel = gameDetailViewModel)
                 }
             }
         }

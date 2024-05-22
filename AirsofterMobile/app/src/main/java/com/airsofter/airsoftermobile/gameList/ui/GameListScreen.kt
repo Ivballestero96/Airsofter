@@ -62,10 +62,10 @@ import kotlinx.serialization.json.Json
 fun GameListScreen(gameListViewModel: GameListViewModel, onGameClick: (Game) -> Unit) {
     val snackbarHostState = remember { SnackbarHostState() }
 
-    // Observar la lista de juegos y el estado del filtro de ubicación
     val games by gameListViewModel.games.observeAsState()
     val isLoading: Boolean by gameListViewModel.isLoading.observeAsState(false)
     val locationFilter by gameListViewModel.locationFilter.observeAsState("")
+    val nextGame by gameListViewModel.nextGame.observeAsState(null) // Obtener el próximo juego del ViewModel
 
     Scaffold(
         snackbarHost = {
@@ -80,7 +80,8 @@ fun GameListScreen(gameListViewModel: GameListViewModel, onGameClick: (Game) -> 
             onRefreshClicked = { gameListViewModel.refresh() },
             onLocationFilterChange = { gameListViewModel.updateLocationFilter(it) },
             onApplyFilter = { gameListViewModel.applyFilter() },
-            onGameClick = onGameClick
+            onGameClick = onGameClick,
+            nextGame = nextGame // Pasar el próximo juego a GameListContent
         )
     }
 }
@@ -94,7 +95,8 @@ fun GameListContent(
     onRefreshClicked: () -> Unit,
     onApplyFilter: () -> Unit,
     locationFilter: String,
-    onGameClick: (Game) -> Unit
+    onGameClick: (Game) -> Unit,
+    nextGame: Game? // Agregar el parámetro para el próximo juego
 ) {
     var gamesToLoad: List<Game> = emptyList()
     if (games?.games != null) {
@@ -113,7 +115,7 @@ fun GameListContent(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            NextGame(gamesToLoad, onGameClick)
+            NextGame(nextGame, onGameClick) // Mostrar el próximo juego
             LocationFilter(locationFilter, onLocationFilterChange, onApplyFilter)
             GameList(gamesToLoad, locationFilter, onRefreshClicked, onGameClick)
         }
@@ -176,12 +178,13 @@ fun Title(text: String) {
 }
 
 @Composable
-fun NextGame(games: List<Game>, onGameClick: (Game) -> Unit) {
+fun NextGame(game: Game?, onGameClick: (Game) -> Unit) {
     Title(text = stringResource(id = R.string.nextGame))
-    val firstGame = games.firstOrNull()
 
-    if (firstGame != null) {
-        GameItem(game = firstGame, onClick = { onGameClick(firstGame) })
+    if (game != null) {
+        GameItem(game = game, onClick = { onGameClick(game) })
+    }else{
+
     }
 }
 
@@ -257,5 +260,25 @@ fun LocationFilter(locationFilter: String, onLocationFilterChange: (String) -> U
             colors = TextFieldDefaults.colors(focusedContainerColor = Color(0xFFFAF0E7),
             unfocusedContainerColor = Color(0xFFFAF0E7))
         )
+    }
+}
+
+@Composable
+fun CenteredTextCard(text: String, modifier: Modifier = Modifier) {
+    Card(
+        modifier = modifier,
+        elevation = CardDefaults.cardElevation(4.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = text,
+                style = MaterialTheme.typography.titleLarge,
+                color = Color.Black
+            )
+        }
     }
 }
