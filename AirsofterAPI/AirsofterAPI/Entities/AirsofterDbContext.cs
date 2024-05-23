@@ -21,7 +21,21 @@ namespace AirsofterAPI.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserGame>().HasNoKey();
+
+            
+            modelBuilder.Entity<UserGame>()
+             .HasKey(ug => new { ug.UserId, ug.GameId });
+
+            modelBuilder.Entity<UserGame>()
+                .HasOne(ug => ug.User)
+                .WithMany(u => u.UserGames)
+                .HasForeignKey(ug => ug.UserId);
+
+            modelBuilder.Entity<UserGame>()
+                .HasOne(ug => ug.Game)
+                .WithMany(g => g.UserGames)
+                .HasForeignKey(ug => ug.GameId);
+             
         }
 
     }

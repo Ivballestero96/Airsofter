@@ -2,8 +2,6 @@ package com.airsofter.airsoftermobile.settings
 
 import android.content.Context
 import android.content.Intent
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,10 +15,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.airsofter.airsoftermobile.MainActivity
+import com.airsofter.airsoftermobile.R
 
 @Composable
 fun SettingsScreen() {
@@ -38,7 +36,7 @@ fun SettingsScreen() {
                 onClick = { },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = "Notificar un error")
+                Text(text = stringResource(id = R.string.notifyError))
             }
             Spacer(modifier = Modifier.height(8.dp))
             Button(
@@ -48,7 +46,7 @@ fun SettingsScreen() {
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = "Cerrar sesión")
+                Text(text = stringResource(id = R.string.logout))
             }
         }
     }

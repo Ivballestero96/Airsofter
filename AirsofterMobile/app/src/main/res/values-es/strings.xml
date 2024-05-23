@@ -30,4 +30,20 @@
     <string name="filterByProvince">Filtrar por provincia</string>
     <string name="applyFilter">Aplicar filtro</string>
     <string name="backToList">Volver al listado</string>
+    <string name="description">Descripción</string>
+    <string name="playersList">Lista de jugadores:</string>
+    <string name="country">País</string>
+    <string name="company">Compañía</string>
+    <string name="gameFull">Partida llena</string>
+    <string name="leaveGame">Abandonar</string>
+    <string name="joinGame">Unirse</string>
+    <string name="succesfulJoinGame">Se ha unido a la partida</string>
+    <string name="failedJoinGame">Ha ocurrido un error al unirse a la partida</string>
+    <string name="noNextGame">No estás apuntado a una partida</string>
+    <string name="alreadyInAnotherGameDate">Ya estás registrado para otro juego en la misma fecha</string>
+    <string name="alreadyInGame">Ya estás esta en esta partida</string>
+    <string name="gameNotFound">Partida no encontrada</string>
+    <string name="succesfulCancelSignUp">Has salido de la partida</string>
+    <string name="notifyError">Notificar error</string>
+    <string name="logout">Cerrar sesión</string>
 </resources>

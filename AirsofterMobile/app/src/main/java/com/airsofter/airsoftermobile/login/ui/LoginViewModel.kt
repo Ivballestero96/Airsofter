@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase, ) : ViewModel() {
+class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase ) : ViewModel() {
 
     private val _username = MutableLiveData<String>()
     val username: LiveData<String> = _username
@@ -56,20 +56,18 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase,
 
                 val user = UserToLoad(
                     id = userToLoad.id,
-                    username = userToLoad.username ?: "",
-                    displayName = userToLoad.displayName ?: "",
-                    email = userToLoad.email ?: ""
+                    username = userToLoad.username,
+                    displayName = userToLoad.displayName ,
+                    email = userToLoad.email
                 )
 
                 UserManager.setCurrentUser(user)
                 navController.navigate("HomeScreenKey")
-                // Aquí puedes realizar alguna acción después de que el inicio de sesión sea exitoso, como navegar a otra pantalla
             } else {
                 Log.i("LOGIN", "Login failed")
                 scope.launch {
                     snackbarHostState.showSnackbar(context.getString(R.string.login_failed))
                 }
-                // Aquí puedes manejar el caso en que el inicio de sesión falle, por ejemplo, mostrar un mensaje de error al usuario
             }
             _isLoading.value = false
         }

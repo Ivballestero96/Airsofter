@@ -1,9 +1,6 @@
 package com.airsofter.airsoftermobile.gameList.ui
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,14 +29,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
@@ -47,23 +42,25 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.airsofter.airsoftermobile.R
-import com.airsofter.airsoftermobile.core.model.Game
-import com.airsofter.airsoftermobile.gameList.data.network.response.GameListResponse
+import com.airsofter.airsoftermobile.core.model.GameDetailDto
 
 @Composable
-fun GameListScreen(gameListViewModel: GameListViewModel, onGameClick: (Game) -> Unit) {
+fun GameListScreen(gameListViewModel: GameListViewModel, onGameClick: (GameDetailDto) -> Unit) {
     val snackbarHostState = remember { SnackbarHostState() }
 
     val games by gameListViewModel.games.observeAsState()
     val isLoading: Boolean by gameListViewModel.isLoading.observeAsState(false)
     val locationFilter by gameListViewModel.locationFilter.observeAsState("")
-    val nextGame by gameListViewModel.nextGame.observeAsState(null) // Obtener el próximo juego del ViewModel
+    val nextGame by gameListViewModel.nextGame.observeAsState(null)
+
+    LaunchedEffect(gameListViewModel) {
+        gameListViewModel.refresh()
+    }
 
     Scaffold(
         snackbarHost = {
@@ -79,7 +76,7 @@ fun GameListScreen(gameListViewModel: GameListViewModel, onGameClick: (Game) -> 
             onLocationFilterChange = { gameListViewModel.updateLocationFilter(it) },
             onApplyFilter = { gameListViewModel.applyFilter() },
             onGameClick = onGameClick,
-            nextGame = nextGame // Pasar el próximo juego a GameListContent
+            nextGame = nextGame
         )
     }
 }
@@ -87,18 +84,18 @@ fun GameListScreen(gameListViewModel: GameListViewModel, onGameClick: (Game) -> 
 @Composable
 fun GameListContent(
     modifier: Modifier,
-    games: GameListResponse?,
+    games: List<GameDetailDto>?,
     isLoading: Boolean,
     onLocationFilterChange: (String) -> Unit,
     onRefreshClicked: () -> Unit,
     onApplyFilter: () -> Unit,
     locationFilter: String,
-    onGameClick: (Game) -> Unit,
-    nextGame: Game? // Agregar el parámetro para el próximo juego
+    onGameClick: (GameDetailDto) -> Unit,
+    nextGame: GameDetailDto?
 ) {
-    var gamesToLoad: List<Game> = emptyList()
-    if (games?.games != null) {
-        gamesToLoad = games.games
+    var gamesToLoad: List<GameDetailDto> = emptyList()
+    if (games != null) {
+        gamesToLoad = games
     }
 
     if (isLoading) {
@@ -113,7 +110,7 @@ fun GameListContent(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            NextGame(nextGame, onGameClick) // Mostrar el próximo juego
+            NextGame(nextGame, onGameClick)
             LocationFilter(locationFilter, onLocationFilterChange, onApplyFilter)
             GameList(gamesToLoad, locationFilter, onRefreshClicked, onGameClick)
         }
@@ -122,13 +119,13 @@ fun GameListContent(
 
 @Composable
 fun GameList(
-    games: List<Game>,
+    games: List<GameDetailDto>,
     locationFilter: String,
     onRefreshClicked: () -> Unit,
-    onGameClick: (Game) -> Unit
+    onGameClick: (GameDetailDto) -> Unit
 ) {
     val filteredGames = if (locationFilter.isNotBlank()) {
-        games.filter { it.location.contains(locationFilter, ignoreCase = true) }
+        games.filter { it.provinceName.contains(locationFilter, ignoreCase = true) }
     } else {
         games
     }
@@ -176,24 +173,25 @@ fun Title(text: String) {
 }
 
 @Composable
-fun NextGame(game: Game?, onGameClick: (Game) -> Unit) {
+fun NextGame(game: GameDetailDto?, onGameClick: (GameDetailDto) -> Unit) {
     Title(text = stringResource(id = R.string.nextGame))
 
     if (game != null) {
         GameItem(game = game, onClick = { onGameClick(game) })
     }else{
+        CenteredTextCard(text = stringResource(id = R.string.noNextGame))
 
     }
 }
 
 @Composable
-fun GameItem(game: Game, onClick: () -> Unit) {
+fun GameItem(game: GameDetailDto, onClick: () -> Unit) {
     val placeholderImage: Painter = painterResource(id = R.drawable.fieldpic)
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
-            .clickable(onClick = onClick), // Agregar clickable
+            .clickable(onClick = onClick),
         elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         shape = RoundedCornerShape(8.dp)
@@ -222,12 +220,12 @@ fun GameItem(game: Game, onClick: () -> Unit) {
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "${stringResource(id = R.string.province)}: ${game.location}",
+                    text = game.provinceName,
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.End
                 )
                 Text(
-                    text = "${game.gameDateTime.substringBefore("T")} ${if (game.isAM) "AM" else "PM"}",
+                    text = "${game.gameDateTime.substringBefore("T").split("-").let { "${it[2]}-${it[1]}-${it[0]}" }} ${if (game.isAM) "AM" else "PM"}",
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.End
                 )
@@ -269,12 +267,12 @@ fun CenteredTextCard(text: String, modifier: Modifier = Modifier) {
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
     ) {
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = text,
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.bodyMedium,
                 color = Color.Black
             )
         }

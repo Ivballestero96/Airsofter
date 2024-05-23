@@ -1,6 +1,5 @@
 package com.airsofter.airsoftermobile.login.domain
 
-import com.airsofter.airsoftermobile.core.model.UserToLoad
 import com.airsofter.airsoftermobile.login.data.LoginRepository
 import com.airsofter.airsoftermobile.login.data.network.response.LoginResponse
 import javax.inject.Inject

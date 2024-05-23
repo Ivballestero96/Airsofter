@@ -20,8 +20,8 @@ class NetworkModule {
     @Provides
     fun provideRetrofit():Retrofit{
         return Retrofit.Builder()
-            .baseUrl("https://airsofterapi20240521182128.azurewebsites.net/api/")
-            //.baseUrl("http://10.0.2.2:5238/api/")
+            //.baseUrl("https://airsofterapi20240521182128.azurewebsites.net/api/")
+            .baseUrl("http://10.0.2.2:5238/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

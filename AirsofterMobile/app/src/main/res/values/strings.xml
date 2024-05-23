@@ -29,8 +29,20 @@
     <string name="filterByProvince">Filter by Province</string>
     <string name="applyFilter">Apply filter</string>
     <string name="backToList">Back to list</string>
-    <string name="description">Description\n</string>
-    <string name="playersList">Player list\n</string>
-    <string name="country">Country\n</string>
-    <string name="company">Company\n</string>
+    <string name="description">Description</string>
+    <string name="playersList">Player list:</string>
+    <string name="country">Country</string>
+    <string name="company">Company</string>
+    <string name="gameFull">Game Full</string>
+    <string name="leaveGame">Leave</string>
+    <string name="joinGame">Join</string>
+    <string name="succesfulJoinGame">Succesfully joined</string>
+    <string name="failedJoinGame">An error ocurred while joining the game</string>
+    <string name="noNextGame">You are not signed in any game</string>
+    <string name="alreadyInAnotherGameDate">You are already in a game at the same date</string>
+    <string name="alreadyInGame">You are already in this game</string>
+    <string name="gameNotFound">Game not found</string>
+    <string name="succesfulCancelSignUp">You left the game</string>
+    <string name="notifyError">Notify error</string>
+    <string name="logout">Logout</string>
 </resources>

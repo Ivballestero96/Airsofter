@@ -8,5 +8,8 @@
         public required string? Password { get; set; }
         public required string? Email { get; set; }
         public DateTime CreationDate { get; set; }
+
+        public ICollection<UserGame> UserGames { get; set; }
+
     }
 }

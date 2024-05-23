@@ -1,12 +1,11 @@
 package com.airsofter.airsoftermobile.gameList.data.network
 
 import android.util.Log
-import com.airsofter.airsoftermobile.gameList.data.network.response.GameListResponse
-import com.airsofter.airsoftermobile.gameList.data.network.response.NextGameResponse
+import com.airsofter.airsoftermobile.core.model.GameDetailDto
 import javax.inject.Inject
 
 class GameListService @Inject constructor(private val gameListClient: IGameListClient){
-    suspend fun getGameList(): GameListResponse? {
+    suspend fun getGameList(): List<GameDetailDto>? {
         return try {
             val response = gameListClient.getGameList()
 
@@ -23,16 +22,14 @@ class GameListService @Inject constructor(private val gameListClient: IGameListC
         }
     }
 
-    suspend fun getNextGame(id: String?): NextGameResponse? {
+    suspend fun getNextGame(id: String?): GameDetailDto? {
         return try {
             val response = gameListClient.getNextGame(id)
-                Log.d("TEST", "Entro en service")
-                Log.d("TEST", response.toString())
-            if (response != null && response.isSuccessful) {
+            Log.d("TEST", response.toString())
+            if (response.isSuccessful) {
                 Log.d("Response", response.body().toString())
                 response.body()
             } else {
-                Log.d("TEST", "NULL")
                 null
             }
         } catch (e: Exception) {

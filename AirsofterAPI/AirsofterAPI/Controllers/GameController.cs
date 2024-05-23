@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using AirsofterAPI.DTO.Games;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AirsofterAPI.Controllers
 {
@@ -21,37 +22,40 @@ namespace AirsofterAPI.Controllers
 
 
         [HttpGet("list")]
-        public async Task<ActionResult<GameListResponse>> GetGames()
+        public async Task<ActionResult<List<GameDetailDto>>> GetGames()
         {
+            var today = DateTime.Today;
+
             var games = await _context.Games
                 .Include(g => g.Field)
                     .ThenInclude(f => f.Province)
                 .Include(g => g.Field)
                     .ThenInclude(f => f.Country)
+                .Where(g => g.GameDate >= today)
                 .ToListAsync();
 
-            var gameDtos = games.Select(g => new GameDto
+            var gameDtos = games.Select(g => new GameDetailDto
             {
                 Id = g.Id,
                 FieldName = g.Field.Name,
-                Location = g.Field.Province.Name,
+                ProvinceName = g.Field.Province.Name,
+                CountryName = g.Field.Country.Name,
                 GameDateTime = g.GameDate,
                 IsAM = g.IsAM,
                 CurrentPlayers = _context.UserGames.Count(gp => gp.GameId == g.Id),
                 MaxPlayers = g.MaxPlayers
-            }).ToList();
+            })
+            .OrderBy(g => g.GameDateTime.Date)
+            .ThenByDescending(g => g.IsAM)
+            .ToList();
 
-            var gameListResponse = new GameListResponse
-            {
-                GameListDto = gameDtos
-            };
-
-            return gameListResponse;
+            return gameDtos;
         }
 
 
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<GameDetailResponse>> GetGame(Guid id)
+        public async Task<ActionResult<GameDetailDto>> GetGame(Guid id)
         {
             var game = await _context.Games
                 .Include(g => g.Field)
@@ -73,6 +77,7 @@ namespace AirsofterAPI.Controllers
                 .ToListAsync();
 
             var playerNames = userGames.Select(ug => ug.User?.DisplayName).ToList();
+            var playerIds = userGames.Select(ug => ug.UserId).ToList();
 
             var gameDetailDto = new GameDetailDto
             {
@@ -86,66 +91,58 @@ namespace AirsofterAPI.Controllers
                 MaxPlayers = game.MaxPlayers,
                 GameDateTime = game.GameDate,
                 IsAM = game.IsAM,
-                Players = playerNames
+                Players = playerNames,
+                PlayerIds = playerIds
             };
 
-            var gameDetailResponse = new GameDetailResponse
-            {
-                GameDetailDto = gameDetailDto
-            };
-
-            return gameDetailResponse;
+            return gameDetailDto;
         }
 
-        [HttpPost("{id}/signup")]
-        public async Task<ActionResult> SignUpForGame(Guid id, [FromBody] SignUpDto signUpDto)
+        [HttpPost("{userId}/signup/{gameId}")]
+        public async Task<ActionResult> SignUpForGame(Guid userId, Guid gameId)
         {
-            if (id != signUpDto.GameId)
-            {
-                return BadRequest("Game ID in the URL does not match Game ID in the body");
-            }
 
-            var game = await _context.Games.FirstOrDefaultAsync(g => g.Id == id);
+            var game = await _context.Games.FirstOrDefaultAsync(g => g.Id == gameId);
 
             if (game == null)
             {
-                return NotFound("Game not found");
+                return Ok(new { success = true, message = "Game not found" });
             }
 
             var existingSignUp = await _context.UserGames
-                .FirstOrDefaultAsync(gp => gp.GameId == signUpDto.GameId && gp.UserId == signUpDto.UserId);
+                .FirstOrDefaultAsync(gp => gp.GameId == gameId && gp.UserId == userId);
 
             if (existingSignUp != null)
             {
-                return BadRequest("User is already signed up for a game on this date");
+                return Ok(new { success = true, message = "User is already signed up" });
             }
 
-            var isSignedUpForAnotherGameOnSameDate = await _context.UserGames
-                .AnyAsync(gp => gp.UserId == signUpDto.UserId && gp.Game.GameDate.Date == game.GameDate.Date);
+            var userIsInAnotherGame = await _context.UserGames
+                .AnyAsync(gp => gp.UserId == userId && gp.Game.GameDate.Date == game.GameDate.Date);
 
-            if (isSignedUpForAnotherGameOnSameDate)
+            if (userIsInAnotherGame)
             {
-                return BadRequest("User is already signed up for another game on the same date");
+                return Ok(new { success = true, message = "User is already signed up for another game on the same date" });
             }
 
             var gameParticipant = new UserGame
             {
-                GameId = signUpDto.GameId,
-                UserId = signUpDto.UserId
+                GameId = gameId,
+                UserId = userId
             };
 
             _context.UserGames.Add(gameParticipant);
             await _context.SaveChangesAsync();
 
-            return Ok("Signed up for the game successfully");
+            return Ok(new { success = true, message = "Signed up successfully" });
         }
 
         [HttpGet("next/{id}")]
-        public async Task<ActionResult<NextGameResponse>> GetNextGameForPlayer(Guid id)
+        public async Task<ActionResult<GameDetailDto>> GetNextGameForPlayer(Guid id)
         {
             var nextGame = await _context.UserGames
-                .Where(ug => ug.UserId == id) // Filtrar por el ID del jugador
-                .Include(ug => ug.Game) // Incluir la entidad Game asociada a UserGame
+                .Where(ug => ug.UserId == id) 
+                .Include(ug => ug.Game) 
                     .ThenInclude(g => g.Field)
                         .ThenInclude(f => f.Company)
                 .Include(ug => ug.Game)
@@ -154,9 +151,9 @@ namespace AirsofterAPI.Controllers
                 .Include(ug => ug.Game)
                     .ThenInclude(g => g.Field)
                         .ThenInclude(f => f.Province)
-                .Where(ug => ug.Game.GameDate >= DateTime.Now) // Filtrar por fecha de juego
+                .Where(ug => ug.Game.GameDate >= DateTime.Now) 
                 .OrderBy(ug => ug.Game.GameDate)
-                .Select(ug => ug.Game) // Seleccionar la entidad Game
+                .Select(ug => ug.Game) 
                 .FirstOrDefaultAsync();
 
 
@@ -167,25 +164,37 @@ namespace AirsofterAPI.Controllers
                 return NotFound("No upcoming games found");
             }
 
-            var gameDto = new GameDto
+            var gameDto = new GameDetailDto
             { 
                 Id = nextGame.Id,
                 FieldName = nextGame.Field.Name,
-                Location = nextGame.Field.Province.Name,
+                ProvinceName = nextGame.Field.Province.Name,
                 GameDateTime = nextGame.GameDate,
                 IsAM = nextGame.IsAM,
                 CurrentPlayers = _context.UserGames.Count(gp => gp.GameId == nextGame.Id),
                 MaxPlayers = nextGame.MaxPlayers
             };
 
-            NextGameResponse nextGameResponse = new NextGameResponse
-            {
-                NextGameDto = gameDto
-            };
 
-            return nextGameResponse;
+            return gameDto;
         }
 
+        [HttpDelete("{userId}/cancel/{gameId}")]
+        public async Task<ActionResult<bool>> CancelGameSignUp(Guid userId, Guid gameId)
+        {
+            var gameParticipant = await _context.UserGames
+                .FirstOrDefaultAsync(gp => gp.GameId == gameId && gp.UserId == userId);
+
+            if (gameParticipant == null)
+            {
+                return NotFound(false);
+            }
+
+            _context.UserGames.Remove(gameParticipant);
+            await _context.SaveChangesAsync();
+
+            return Ok(true);
+        }
 
     }
 }

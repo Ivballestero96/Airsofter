@@ -13,5 +13,6 @@
         public DateTime GameDateTime { get; set; }
         public bool IsAM { get; set; }
         public List<string>? Players { get; set; }
+        public List<Guid>? PlayerIds { get; set; }
     }
 }

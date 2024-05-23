@@ -41,8 +41,6 @@ class MainActivity : ComponentActivity() {
     private val gameListViewModel: GameListViewModel by viewModels()
     private  val gameDetailViewModel: GameDetailViewModel by viewModels()
 
-    // Obtener el usuario actualmente logueado
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

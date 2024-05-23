@@ -11,15 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirsofterAPI.Migrations
 {
     [DbContext(typeof(AirsofterDbContext))]
-    [Migration("20240518152716_RequiredEntities")]
-    partial class RequiredEntities
+    [Migration("20240523200818_Entities")]
+    partial class Entities
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AirsofterAPI.Entities.Administrator", b =>
@@ -54,8 +54,8 @@ namespace AirsofterAPI.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Country")
-                        .HasColumnType("longtext");
+                    b.Property<Guid>("CountryId")
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime(6)");
@@ -66,13 +66,17 @@ namespace AirsofterAPI.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Province")
-                        .HasColumnType("longtext");
+                    b.Property<Guid>("ProvinceId")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Username")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("ProvinceId");
 
                     b.ToTable("Companies");
                 });
@@ -140,8 +144,8 @@ namespace AirsofterAPI.Migrations
                     b.Property<bool>("IsAM")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<uint>("maxPlayers")
-                        .HasColumnType("int unsigned");
+                    b.Property<int>("MaxPlayers")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -211,6 +215,25 @@ namespace AirsofterAPI.Migrations
                     b.ToTable("UserGames");
                 });
 
+            modelBuilder.Entity("AirsofterAPI.Entities.Company", b =>
+                {
+                    b.HasOne("AirsofterAPI.Entities.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AirsofterAPI.Entities.Province", "Province")
+                        .WithMany()
+                        .HasForeignKey("ProvinceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
+
+                    b.Navigation("Province");
+                });
+
             modelBuilder.Entity("AirsofterAPI.Entities.Field", b =>
                 {
                     b.HasOne("AirsofterAPI.Entities.Company", "Company")
@@ -225,7 +248,7 @@ namespace AirsofterAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AirsofterAPI.Entities.Province", "province")
+                    b.HasOne("AirsofterAPI.Entities.Province", "Province")
                         .WithMany()
                         .HasForeignKey("ProvinceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -235,7 +258,7 @@ namespace AirsofterAPI.Migrations
 
                     b.Navigation("Country");
 
-                    b.Navigation("province");
+                    b.Navigation("Province");
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.Game", b =>

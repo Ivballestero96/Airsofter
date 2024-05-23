@@ -1,13 +1,11 @@
 package com.airsofter.airsoftermobile.gameList.ui
 
 import UserManager
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.airsofter.airsoftermobile.core.model.Game
-import com.airsofter.airsoftermobile.gameList.data.network.response.GameListResponse
+import com.airsofter.airsoftermobile.core.model.GameDetailDto
 import com.airsofter.airsoftermobile.gameList.domain.GameListUseCase
 import com.airsofter.airsoftermobile.gameList.domain.NextGameUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,8 +18,8 @@ class GameListViewModel @Inject constructor(
     private val nextGameUseCase: NextGameUseCase
 ) : ViewModel() {
 
-    private val _games = MutableLiveData<GameListResponse>()
-    val games: LiveData<GameListResponse> get() = _games
+    private val _games = MutableLiveData<List<GameDetailDto>>()
+    val games: LiveData<List<GameDetailDto>> get() = _games
 
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
@@ -32,10 +30,10 @@ class GameListViewModel @Inject constructor(
     private val _locationFilter = MutableLiveData<String>()
     val locationFilter: LiveData<String> get() = _locationFilter
 
-    private val _nextGame = MutableLiveData<Game?>()
-    val nextGame: LiveData<Game?> get() = _nextGame
+    private val _nextGame = MutableLiveData<GameDetailDto?>()
+    val nextGame: LiveData<GameDetailDto?> get() = _nextGame
 
-    private var allGames: List<Game> = emptyList()
+    private var allGames: List<GameDetailDto> = emptyList()
 
     init {
         fetchGames()
@@ -54,18 +52,18 @@ class GameListViewModel @Inject constructor(
         val filter = _locationFilter.value.orEmpty().trim()
 
         val filteredGames = if (filter.isNotBlank()) {
-            allGames.filter { it.location.contains(filter, ignoreCase = true) }
+            allGames.filter { it.provinceName.contains(filter, ignoreCase = true) }
         } else {
             allGames
         }
 
-        _games.value = GameListResponse(filteredGames)
+        _games.value = filteredGames
     }
 
     private fun getNextGame(id: String?) {
         viewModelScope.launch {
             try {
-                val nextGame = nextGameUseCase(id)?.nextGameDto
+                val nextGame = nextGameUseCase(id)
                 _nextGame.postValue(nextGame)
             } catch (e: Exception) {
                 _error.value = "Error fetching next game: ${e.message}"
@@ -78,9 +76,9 @@ class GameListViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val gameList = gameListUseCase.invoke() ?: throw NullPointerException("Games list is null")
-                allGames = gameList.games
+                allGames = gameList
                 _games.postValue(gameList)
-                getNextGame(UserManager.getCurrentUser()?.id) // Obtener el próximo juego después de obtener la lista
+                getNextGame(UserManager.getCurrentUser()?.id)
             } catch (e: Exception) {
                 _error.value = "Error fetching games: ${e.message}"
             } finally {

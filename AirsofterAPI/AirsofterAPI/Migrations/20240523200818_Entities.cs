@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AirsofterAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class RequiredEntities : Migration
+    public partial class Entities : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,25 +24,6 @@ namespace AirsofterAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Administrators", x => x.Id);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Companies",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
-                    Username = table.Column<string>(type: "longtext", nullable: true),
-                    CompanyName = table.Column<string>(type: "longtext", nullable: true),
-                    Country = table.Column<string>(type: "longtext", nullable: true),
-                    Province = table.Column<string>(type: "longtext", nullable: true),
-                    Password = table.Column<string>(type: "longtext", nullable: true),
-                    Email = table.Column<string>(type: "longtext", nullable: true),
-                    CreationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Companies", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -74,6 +55,37 @@ namespace AirsofterAPI.Migrations
                         name: "FK_Provinces_Countries_CountryId",
                         column: x => x.CountryId,
                         principalTable: "Countries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Companies",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
+                    Username = table.Column<string>(type: "longtext", nullable: true),
+                    CompanyName = table.Column<string>(type: "longtext", nullable: true),
+                    CountryId = table.Column<Guid>(type: "char(36)", nullable: false),
+                    ProvinceId = table.Column<Guid>(type: "char(36)", nullable: false),
+                    Password = table.Column<string>(type: "longtext", nullable: true),
+                    Email = table.Column<string>(type: "longtext", nullable: true),
+                    CreationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Companies", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Companies_Countries_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Countries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Companies_Provinces_ProvinceId",
+                        column: x => x.ProvinceId,
+                        principalTable: "Provinces",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -122,7 +134,7 @@ namespace AirsofterAPI.Migrations
                     GameDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     FieldId = table.Column<Guid>(type: "char(36)", nullable: false),
                     IsAM = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    maxPlayers = table.Column<uint>(type: "int unsigned", nullable: false)
+                    MaxPlayers = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,6 +171,16 @@ namespace AirsofterAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Companies_CountryId",
+                table: "Companies",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Companies_ProvinceId",
+                table: "Companies",
+                column: "ProvinceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Fields_CompanyId",

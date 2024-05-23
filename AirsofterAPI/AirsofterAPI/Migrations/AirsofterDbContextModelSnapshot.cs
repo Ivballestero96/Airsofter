@@ -16,7 +16,7 @@ namespace AirsofterAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AirsofterAPI.Entities.Administrator", b =>
@@ -39,7 +39,7 @@ namespace AirsofterAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Administrators");
+                    b.ToTable("Administrators", (string)null);
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.Company", b =>
@@ -51,8 +51,8 @@ namespace AirsofterAPI.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Country")
-                        .HasColumnType("longtext");
+                    b.Property<Guid>("CountryId")
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime(6)");
@@ -63,15 +63,19 @@ namespace AirsofterAPI.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Province")
-                        .HasColumnType("longtext");
+                    b.Property<Guid>("ProvinceId")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Username")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies");
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("ProvinceId");
+
+                    b.ToTable("Companies", (string)null);
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.Country", b =>
@@ -86,7 +90,7 @@ namespace AirsofterAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.Field", b =>
@@ -116,7 +120,7 @@ namespace AirsofterAPI.Migrations
 
                     b.HasIndex("ProvinceId");
 
-                    b.ToTable("Fields");
+                    b.ToTable("Fields", (string)null);
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.Game", b =>
@@ -137,14 +141,14 @@ namespace AirsofterAPI.Migrations
                     b.Property<bool>("IsAM")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<uint>("maxPlayers")
-                        .HasColumnType("int unsigned");
+                    b.Property<int>("MaxPlayers")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("FieldId");
 
-                    b.ToTable("Games");
+                    b.ToTable("Games", (string)null);
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.Province", b =>
@@ -164,7 +168,7 @@ namespace AirsofterAPI.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Provinces");
+                    b.ToTable("Provinces", (string)null);
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.User", b =>
@@ -190,7 +194,7 @@ namespace AirsofterAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.UserGame", b =>
@@ -205,7 +209,26 @@ namespace AirsofterAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserGames");
+                    b.ToTable("UserGames", (string)null);
+                });
+
+            modelBuilder.Entity("AirsofterAPI.Entities.Company", b =>
+                {
+                    b.HasOne("AirsofterAPI.Entities.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AirsofterAPI.Entities.Province", "Province")
+                        .WithMany()
+                        .HasForeignKey("ProvinceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
+
+                    b.Navigation("Province");
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.Field", b =>
@@ -222,7 +245,7 @@ namespace AirsofterAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AirsofterAPI.Entities.Province", "province")
+                    b.HasOne("AirsofterAPI.Entities.Province", "Province")
                         .WithMany()
                         .HasForeignKey("ProvinceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -232,7 +255,7 @@ namespace AirsofterAPI.Migrations
 
                     b.Navigation("Country");
 
-                    b.Navigation("province");
+                    b.Navigation("Province");
                 });
 
             modelBuilder.Entity("AirsofterAPI.Entities.Game", b =>
