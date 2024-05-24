@@ -86,8 +86,7 @@
               "RelativeToolTip": "AirsofterAPI\\DTO\\Games\\GameDetailDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T17:33:51.684Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T17:33:51.684Z"
             },
             {
               "$type": "Document",
@@ -99,8 +98,7 @@
               "RelativeToolTip": "AirsofterAPI\\Entities\\Field.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T17:16:29.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T17:16:29.075Z"
             },
             {
               "$type": "Document",
@@ -112,8 +110,7 @@
               "RelativeToolTip": "AirsofterAPI\\Controllers\\FieldController.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAqwBUAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T17:13:24.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T17:13:24.891Z"
             },
             {
               "$type": "Document",
@@ -125,8 +122,7 @@
               "RelativeToolTip": "AirsofterAPI\\DTO\\Games\\CreateGameDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T17:11:21.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T17:11:21.259Z"
             },
             {
               "$type": "Document",
@@ -136,7 +132,7 @@
               "RelativeDocumentMoniker": "AirsofterAPI\\Controllers\\GameController.cs",
               "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\Controllers\\GameController.cs",
               "RelativeToolTip": "AirsofterAPI\\Controllers\\GameController.cs",
-              "ViewState": "AQIAALgAAAAAAAAAAAAhwMQAAAAJAAAA",
+              "ViewState": "AQIAALgAAAAAAAAAAAAhwNIAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T17:10:06.611Z",
               "EditorCaption": ""
@@ -151,8 +147,7 @@
               "RelativeToolTip": "AirsofterAPI\\Entities\\Game.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:46:40.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T16:46:40.778Z"
             },
             {
               "$type": "Document",
@@ -164,8 +159,7 @@
               "RelativeToolTip": "AirsofterAPI\\DTO\\Administrators\\CompanyLoginDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:39:03.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T16:39:03.251Z"
             },
             {
               "$type": "Document",
@@ -177,8 +171,7 @@
               "RelativeToolTip": "AirsofterAPI\\Entities\\Company.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:23:02.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T16:23:02.843Z"
             },
             {
               "$type": "Document",
@@ -190,8 +183,7 @@
               "RelativeToolTip": "AirsofterAPI\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-24T14:42:37.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T14:42:37.53Z"
             },
             {
               "$type": "Document",
@@ -202,8 +194,7 @@
               "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterAPI\\AirsofterAPI\\AirsofterAPI.csproj",
               "RelativeToolTip": "AirsofterAPI\\AirsofterAPI.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-24T14:42:34.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T14:42:34.13Z"
             },
             {
               "$type": "Document",
@@ -215,8 +206,7 @@
               "RelativeToolTip": "AirsofterAPI\\appsettings.Development.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-24T14:42:21.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T14:42:21.603Z"
             },
             {
               "$type": "Document",
@@ -228,8 +218,7 @@
               "RelativeToolTip": "AirsofterAPI\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-24T14:25:41.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T14:25:41.118Z"
             },
             {
               "$type": "Document",
@@ -241,8 +230,7 @@
               "RelativeToolTip": "AirsofterAPI\\Entities\\Administrator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T13:46:34.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T13:46:34.345Z"
             },
             {
               "$type": "Document",
@@ -254,8 +242,7 @@
               "RelativeToolTip": "AirsofterAPI\\Controllers\\UserController.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T13:44:27.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T13:44:27.657Z"
             },
             {
               "$type": "Document",
@@ -267,8 +254,7 @@
               "RelativeToolTip": "AirsofterAPI\\Controllers\\CompanyController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T13:43:55.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T13:43:55.17Z"
             }
           ]
         }
