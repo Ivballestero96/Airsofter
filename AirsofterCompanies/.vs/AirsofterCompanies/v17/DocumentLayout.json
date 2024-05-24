@@ -1,0 +1,579 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\views\\mainview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\views\\mainview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\views\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\views\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\views\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\views\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\views\\creategamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\views\\creategamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\views\\creategamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\views\\creategamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\viewmodels\\viewmodelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\viewmodels\\viewmodelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\viewmodels\\creategameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\viewmodels\\creategameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\utils\\viewmodellocator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\utils\\viewmodellocator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\utils\\appcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\utils\\appcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\utils\\actioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\utils\\actioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\repositories\\igamerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\repositories\\igamerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\repositories\\ifieldrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\repositories\\ifieldrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\repositories\\gamerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\repositories\\gamerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\repositories\\icompanyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\repositories\\icompanyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\repositories\\fieldrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\repositories\\fieldrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\repositories\\companyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\repositories\\companyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\models\\gamemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\models\\gamemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\models\\field.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\models\\field.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\models\\companymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\models\\companymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\models\\companyaccountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\models\\companyaccountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\customcontrols\\bindablepasswordbox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\customcontrols\\bindablepasswordbox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\customcontrols\\bindablepasswordbox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\customcontrols\\bindablepasswordbox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|c:\\users\\ivanb\\documents\\airsofterapp\\airsofter\\airsoftercompanies\\airsoftercompanies\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{865F5AEE-26D8-40BA-B045-9BA731732CC2}|AirsofterCompanies\\AirsofterCompanies.csproj|solutionrelative:airsoftercompanies\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ivanb\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateGameWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\CreateGameWindow.xaml",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Views\\CreateGameWindow.xaml",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\CreateGameWindow.xaml",
+              "RelativeToolTip": "AirsofterCompanies\\Views\\CreateGameWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-24T16:46:11.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateGameWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\CreateGameWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Views\\CreateGameWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\CreateGameWindow.xaml.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Views\\CreateGameWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T17:20:47.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\LoginView.xaml",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Views\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\LoginView.xaml",
+              "RelativeToolTip": "AirsofterCompanies\\Views\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-24T13:20:41.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\LoginView.xaml.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Views\\LoginView.xaml.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\LoginView.xaml.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Views\\LoginView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:24:44.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainView.xaml",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\MainView.xaml",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Views\\MainView.xaml",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\MainView.xaml",
+              "RelativeToolTip": "AirsofterCompanies\\Views\\MainView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-24T13:25:40.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\MainView.xaml.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Views\\MainView.xaml.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Views\\MainView.xaml.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Views\\MainView.xaml.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAmwCsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:27:26.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\App.config",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\App.config",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\App.config",
+              "RelativeToolTip": "AirsofterCompanies\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-05-24T11:14:50.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\App.xaml",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\App.xaml",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\App.xaml",
+              "RelativeToolTip": "AirsofterCompanies\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-24T11:14:57.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\packages.config",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\packages.config",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\packages.config",
+              "RelativeToolTip": "AirsofterCompanies\\packages.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-05-24T15:40:48.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ViewModelCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\ViewModelCommand.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\ViewModels\\ViewModelCommand.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\ViewModelCommand.cs",
+              "RelativeToolTip": "AirsofterCompanies\\ViewModels\\ViewModelCommand.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:14:45.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\ViewModels\\ViewModelBase.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\ViewModelBase.cs",
+              "RelativeToolTip": "AirsofterCompanies\\ViewModels\\ViewModelBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:13:20.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "AirsofterCompanies\\ViewModels\\LoginViewModel.cs",
+              "ViewState": "AQIAAIgAAAAAAAAAAAAUwEUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:11:54.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "AirsofterCompanies\\ViewModels\\MainViewModel.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAcwDIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:15:12.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CreateGameViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\CreateGameViewModel.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\ViewModels\\CreateGameViewModel.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\ViewModels\\CreateGameViewModel.cs",
+              "RelativeToolTip": "AirsofterCompanies\\ViewModels\\CreateGameViewModel.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAADwvz4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T17:19:39.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ViewModelLocator.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Utils\\ViewModelLocator.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Utils\\ViewModelLocator.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Utils\\ViewModelLocator.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Utils\\ViewModelLocator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T18:06:55.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AppContext.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Utils\\AppContext.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Utils\\AppContext.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Utils\\AppContext.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Utils\\AppContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T18:48:31.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ActionCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Utils\\ActionCommand.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Utils\\ActionCommand.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Utils\\ActionCommand.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Utils\\ActionCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T19:19:10.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Services\\ApiClient.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Services\\ApiClient.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Services\\ApiClient.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Services\\ApiClient.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAIwBsAAABhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:34:26.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RepositoryBase.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\RepositoryBase.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Repositories\\RepositoryBase.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\RepositoryBase.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Repositories\\RepositoryBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:10:23.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IGameRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\IGameRepository.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Repositories\\IGameRepository.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\IGameRepository.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Repositories\\IGameRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T17:33:25.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IFieldRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\IFieldRepository.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Repositories\\IFieldRepository.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\IFieldRepository.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Repositories\\IFieldRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T17:43:30.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "GameRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\GameRepository.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Repositories\\GameRepository.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\GameRepository.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Repositories\\GameRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBUAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T17:36:53.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ICompanyRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\ICompanyRepository.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Repositories\\ICompanyRepository.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\ICompanyRepository.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Repositories\\ICompanyRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:08:07.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CompanyRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\CompanyRepository.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Repositories\\CompanyRepository.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\CompanyRepository.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Repositories\\CompanyRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:10:16.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FieldRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\FieldRepository.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Repositories\\FieldRepository.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Repositories\\FieldRepository.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Repositories\\FieldRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAIwA4AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T17:43:07.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Field.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Models\\Field.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Models\\Field.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Models\\Field.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Models\\Field.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T17:16:56.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GameModel.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Models\\GameModel.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Models\\GameModel.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Models\\GameModel.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Models\\GameModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T17:34:34.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CompanyModel.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Models\\CompanyModel.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Models\\CompanyModel.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Models\\CompanyModel.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Models\\CompanyModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:07:35.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CompanyAccountModel.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Models\\CompanyAccountModel.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\Models\\CompanyAccountModel.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\Models\\CompanyAccountModel.cs",
+              "RelativeToolTip": "AirsofterCompanies\\Models\\CompanyAccountModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:16:02.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BindablePasswordBox.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\CustomControls\\BindablePasswordBox.xaml.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\CustomControls\\BindablePasswordBox.xaml.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\CustomControls\\BindablePasswordBox.xaml.cs",
+              "RelativeToolTip": "AirsofterCompanies\\CustomControls\\BindablePasswordBox.xaml.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAiwBIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:00:37.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "BindablePasswordBox.xaml",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\CustomControls\\BindablePasswordBox.xaml",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\CustomControls\\BindablePasswordBox.xaml",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\CustomControls\\BindablePasswordBox.xaml",
+              "RelativeToolTip": "AirsofterCompanies\\CustomControls\\BindablePasswordBox.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-24T12:57:06.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\App.xaml.cs",
+              "RelativeDocumentMoniker": "AirsofterCompanies\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\ivanb\\Documents\\AirsofterApp\\Airsofter\\AirsofterCompanies\\AirsofterCompanies\\App.xaml.cs",
+              "RelativeToolTip": "AirsofterCompanies\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:29:47.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ResourcePart.cs",
+              "DocumentMoniker": "C:\\Users\\ivanb\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs",
+              "ToolTip": "C:\\Users\\ivanb\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs [Solo lectura]",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs [Solo lectura]",
+              "ViewState": "AQIAABsAAAAAAAAAAAAvwCsAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T13:54:56.752Z",
+              "EditorCaption": " [Solo lectura]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

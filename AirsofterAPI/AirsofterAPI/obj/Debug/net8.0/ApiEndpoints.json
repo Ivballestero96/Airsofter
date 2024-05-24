@@ -1,5 +1,79 @@
 [
   {
+    "ContainingType": "AirsofterAPI.Controllers.CompanyController",
+    "Method": "GetById",
+    "RelativePath": "api/Company/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.CompanyController",
+    "Method": "Login",
+    "RelativePath": "api/Company/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AirsofterAPI.DTO.Administrators.CompanyLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.CompanyController",
+    "Method": "GetByUserName",
+    "RelativePath": "api/Company/username/{username}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.FieldController",
+    "Method": "GetFieldsByCompany",
+    "RelativePath": "api/Field/{companyId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[AirsofterAPI.Entities.Field, AirsofterAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "AirsofterAPI.Controllers.GameController",
     "Method": "GetGame",
     "RelativePath": "api/Game/{id}",
@@ -72,6 +146,22 @@
       {
         "Name": "gameId",
         "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AirsofterAPI.Controllers.GameController",
+    "Method": "CreateGame",
+    "RelativePath": "api/Game/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AirsofterAPI.DTO.Games.CreateGameDto",
         "IsRequired": true
       }
     ],

@@ -196,6 +196,39 @@ namespace AirsofterAPI.Controllers
             return Ok(true);
         }
 
+        [HttpPost("create")]
+        public async Task<ActionResult> CreateGame([FromBody] CreateGameDto model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Verificar si el campo especificado existe
+            var fieldExists = await _context.Fields.AnyAsync(f => f.Id == model.FieldId);
+            if (!fieldExists)
+            {
+                return BadRequest("El campo especificado no existe.");
+            }
+
+            // Crear la nueva partida
+            var newGame = new Game
+            {
+                FieldId = model.FieldId,
+                Description = model.Description,    
+                GameDate = model.GameDate,
+                IsAM = model.IsAM,
+                MaxPlayers = model.MaxPlayers
+            };
+
+            // Agregar la partida a la base de datos
+            _context.Games.Add(newGame);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, message = "Partida creada exitosamente." });
+        }
+
+
     }
 }
 
